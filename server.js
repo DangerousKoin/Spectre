@@ -6,10 +6,12 @@ var cookieParser = require('cookie-parser');
 
 // session middleware
 var indexRoutes = require('./routes/index');
+var userRoutes = require('./routes/users')
+
+
 
 var session = require('express-session');
 var passport = require('passport');
-
 var methodOverride = require('method-override');
 
 // load the env vars
@@ -48,6 +50,10 @@ app.use(passport.session());
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+app.use('/', userRoutes);
+
+
+
 
 
 // ERROR MESSAGING //
