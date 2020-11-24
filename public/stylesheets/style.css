@@ -1,20 +1,40 @@
-.brand-logo {
-  margin-left: 15px;
+body {
+  background-image: url("https://i.imgur.com/JTVEqr5.png");
+  background-color: #000000;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  font-size: 35px;
 }
-
-.card .card-content .card-title {
-  margin-bottom: 10px;
+h1 {
+  color: rgba(150, 150, 150, 0.85);
+  font-family: 'Audiowide', cursive;
+  font-size: 90px;
+  margin: 0 auto;
 }
-
-#search-row form {
-  padding-top: 20px;
+h2 {
+  color: rgba(0, 0, 225, 0.75);
+  font-family: 'Aclonica', sans-serif;
+  font-size: 48px;
+  margin: -20px 0 0 0;
 }
-
-.student-name {
-  position: relative;
-  top: -5px;
+.logo {
+  margin: 10px 0 0 80px;
+  width: 500px;
+  height: 160px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 10px rgba(50, 50, 50, 0.85);
+  text-align: center;
 }
-
-.collection-item form {
-  margin-top: -5px;
+.mainContent {
+  margin: 10px 0 0 80px;
+  width: 1000px;
+  height: 800px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 10px rgba(50, 50, 50, 0.85);
+  text-align: center;
 }
