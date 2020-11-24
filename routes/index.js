@@ -4,6 +4,7 @@ const passport = require('passport');
 // The root route renders our only view
 router.get('/', function(req, res) {
   // Where do you want to go for the root route
+  res.redirect('/main');
 });
 
 // Google OAuth login route
