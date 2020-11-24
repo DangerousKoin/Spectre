@@ -21,6 +21,8 @@ h2 {
   margin: 0 0;
   white-space: nowrap;
 }
+
+/* MAIN CONTAINER */
 header {
   position: fixed;
   display: inline-block;
@@ -45,9 +47,8 @@ header {
   white-space: nowrap;
 }
 
-/* LOGO AREA */
+/* CONTAINER 2 */
 #logo-container { 
-  /* container for drop shadows extra size */
   float: left;
   vertical-align: top;
   text-align: left;
@@ -55,25 +56,6 @@ header {
   min-width: 200px;
   height: 70px;
 }
-#logo-box {
-  /* draw the boxes and shadows */
-  float: left;
-  vertical-align: top;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.75);
-  box-shadow: 5px 10px rgba(50, 50, 50, 0.85);
-}
-#logo {
-  /* content adjustment inside box */
-  text-align: center;
-  margin: 2px;
-  width: 100%;
-  height: 100%;
-}
-
-/* LOGIN AREA */
 #login-container {
   float: right;
   text-align: right;
@@ -81,6 +63,17 @@ header {
   min-width: 250px;
   max-width: 800px;
   height: 70px;
+}
+
+/* CONTAINER 3 */
+#logo-box {
+  float: left;
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 10px rgba(50, 50, 50, 0.85);
 }
 #login-box {
   display: inline-block;
@@ -90,6 +83,15 @@ header {
   background: rgba(0, 0, 0, 0.75);
   box-shadow: 5px 10px rgba(50, 50, 50, 0.85);
   white-space: nowrap;
+}
+
+/* CONTAINER 4 */
+
+#logo {
+  text-align: center;
+  margin: 2px;
+  width: 100%;
+  height: 100%;
 }
 #login-info {
   vertical-align: top;
@@ -148,7 +150,7 @@ header {
 }
 
 /* SMALL SCREENS */
-@media only screen and (max-width: 100px) {
+/* @media only screen and (max-width: 500px) {
   #login-container {
     display: inline-block;
     vertical-align: top;
@@ -167,4 +169,4 @@ header {
   #login-info, #login-buttons {
     display: inline-block;
   }
-}
+} */
