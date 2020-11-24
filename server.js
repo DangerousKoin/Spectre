@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 
 // session middleware
 var indexRoutes = require('./routes/index');
-var mainRoutes = require('./routes/main');
 
 var session = require('express-session');
 var passport = require('passport');
@@ -48,7 +47,6 @@ app.use(passport.session());
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
-app.use('/main', mainRoutes)
 
 
 // invalid request, send 404 page
