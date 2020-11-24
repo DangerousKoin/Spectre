@@ -60,7 +60,7 @@ header {
   min-width: 200px;
   height: 70px;
 }
-#login-container {
+#signin-container {
   float: right;
   text-align: right;
   width: 55%;
@@ -79,7 +79,7 @@ header {
   background: rgba(0, 0, 0, 0.75);
   box-shadow: 5px 10px rgba(50, 50, 50, 0.85);
 }
-#login-box {
+#signin-box {
   display: inline-block;
   width: 100%;
   height: 100%;
@@ -101,7 +101,7 @@ header {
 /* VERTICAL DIVIDER */
 
 /* RIGHT CONTAINER */
-#login-info {
+#signin-info {
   vertical-align: top;
   display: inline-block;
   width: 55%;
@@ -112,14 +112,14 @@ header {
 /* VERTICAL DIVIDER */
 
 /* RIGHT CONTAINER */
-#login-buttons {
+#signin-buttons {
   display: inline-block;
   width: 45%;
   margin-top: 5px;
   white-space: nowrap;
   color: gold;
 }
-#loginBtn, #regBtn, #cartBtn {
+#loginBtn, #logoutBtn, #cartBtn {
   color: rgba(0, 0, 225, 1);
   background-color: rgb(171, 183, 192);
   border-radius: 5px;

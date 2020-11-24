@@ -3,13 +3,6 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-
-// session middleware
-var indexRoutes = require('./routes/index');
-var userRoutes = require('./routes/users')
-
-
-
 var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
@@ -25,7 +18,9 @@ require('./config/database');
 // configure Passport
 require('./config/passport');
 
-
+// session middleware
+var indexRoutes = require('./routes/index');
+var userRoutes = require('./routes/users')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,17 +38,18 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Custom middleware that passes req.user to all templates
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
-
-
-
 
 
 // ERROR MESSAGING //
