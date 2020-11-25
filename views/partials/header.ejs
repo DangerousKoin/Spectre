@@ -16,20 +16,17 @@
               <% if (user.avatar) { %>
                 <img src="<%= user.avatar %>" alt="avatar" class="circle responsive-img" width="50">
               <% } else { %>
-                <i class="medium material-icons">account_circle</i>
+                <i class="material-icons">account_circle</i>
               <% } %>
               <br>
               <small><%= user.name.first %></small>
             <% } else { %>
-              <br>
-              <small>Please Login or Register</small>
+              <a href="/auth/google" id="loginBtn">Login with Google</a>
             <% } %>
           </div>
           <div id="signin-buttons">
             <% if (user) { %>
               <a href="/logout" id="logoutBtn">Logout</a>
-            <% } else { %>
-              <a href="/auth/google" id="loginBtn">Login with Google</a>
             <% } %>
             <br>
             <small>(10000 Items)</small>
