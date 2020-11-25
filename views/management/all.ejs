@@ -1,0 +1,27 @@
+<h2>All Users</h2>
+    <div id="all-users">
+        <% users.forEach(function(user) { %>
+            <div>
+                <span class="card-title">
+                <% if (user.avatar) { %>
+                    <img src="<%= user.avatar %>" alt="avatar" class="circle responsive-img" width="50">
+                <% } else { %>
+                    <i class="small material-icons">perm_identity</i>
+                <% } %>
+            </div>
+            <ul class="collection">
+                <% user.facts.forEach(function(fact) { %>
+                <li><%- fact.text %></li>
+                <% }) %>
+            </ul>
+            <!-- Add Dynamic UI form below this line -->
+            <% if (user._id.equals(user && user._id)) { %>
+                <div class="card-action">
+                <form action="/facts" method="POST">
+                    <input type="text" name="text" class="white-text">
+                    <button type="submit" class="btn white-text">Add Fact</button>
+                </form>
+                </div>
+            <% } %>
+        <% }) %>
+    </div><br>

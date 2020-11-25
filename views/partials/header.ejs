@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Audiowide&family=Syncopate:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Google Icon Fonts used by Materialize -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Materialize CSS Framework -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <!-- JavaScript for Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
-    <title>SPECTRE</title>
-  </head>
-  <body>
+<body>
   <header>
     <div id="header-container">
       <div id="logo-container">
@@ -30,14 +12,24 @@
       <div id="signin-container">
         <div id="signin-box">
           <div id="signin-info">
+            <% if (user) { %>
+              <% if (user.avatar) { %>
+                <img src="<%= user.avatar %>" alt="avatar" class="circle responsive-img" width="50">
+              <% } else { %>
+                <i class="medium material-icons">account_circle</i>
+              <% } %>
+              <br>
+              <small><%= user.name.first %></small>
+            <% } else { %>
+              <br>
               <small>Please Login or Register</small>
+            <% } %>
           </div>
           <div id="signin-buttons">
             <% if (user) { %>
               <a href="/logout" id="logoutBtn">Logout</a>
             <% } else { %>
               <a href="/auth/google" id="loginBtn">Login with Google</a>
-              <a href="/logout" id="logoutBtn">Logout</a>
             <% } %>
             <br>
             <small>(10000 Items)</small>
