@@ -2,11 +2,16 @@ const User = require('../models/user');
 
 module.exports = {
   index,
+  users,
   addFact,
   delFact
 };
 
 function index(req, res, next) {
+    res.render('management/index');
+}
+
+function users(req, res, next) {
   console.log(req.query)
   // Make the query object to use with Student.find based up
   // the user has submitted the search form or now
@@ -26,7 +31,7 @@ function addFact(req, res, next) {
   // req.user IS the Mongoose doc for the logged in user/student
   req.user.facts.push(req.body);
   req.user.save(function(err) {
-    res.redirect('/management/users');
+    res.redirect('management/');
   });
 }
 

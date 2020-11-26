@@ -4,9 +4,10 @@
             <div>
                 <span class="card-title">
                 <% if (user.avatar) { %>
-                    <img src="<%= user.avatar %>" alt="avatar" class="circle responsive-img" width="50">
+                    <img src="<%= user.avatar %>" alt="avatar" class="square responsive-img" width="25">
+                    <%= user.name.full %>
                 <% } else { %>
-                    <i class="medium material-icons">account_circle</i>
+                    <i class="medium material-icons">account_square</i>
                 <% } %>
             </div>
             <ul class="collection">

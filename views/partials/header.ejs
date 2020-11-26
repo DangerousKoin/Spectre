@@ -1,40 +1,46 @@
 <body>
   <header>
     <div id="header-container">
-      <div id="logo-container">
-        <div id="logo-box">
-          <div id="logo">
-            <h1><a href="../">SPECTRE</a></h1>
-            <h2><a href="../">Speaker Rentals</a></h2>
+      <div class="spacer"></div>
+        <div id="logo-container">
+          <div id="logo-box">
+            <div id="logo">
+              <h1><a href="../">SPECTRE</a></h1>
+              <h2><a href="../">Speaker Rentals</a></h2>
+            </div>
           </div>
         </div>
-      </div>
-      <div id="signin-container">
-        <div id="signin-box">
-          <div id="signin-info">
-            <% if (user) { %>
-              <% if (user.avatar) { %>
-                <img src="<%= user.avatar %>" alt="avatar" class="circle responsive-img" width="50">
+      <div class="spacer-center"></div>
+        <div id="signin-container">
+          <div id="signin-box">
+            <div id="signin-info">
+              <% if (user) { %>
+                <% if (user.avatar) { %>
+                  <img src="<%= user.avatar %>" alt="avatar" class="circle responsive-img" width="50">
+                <% } else { %>
+                  <i class="material-icons">account_circle</i>
+                <% } %>
+                <br>
+                <small><%= user.name.first %></small>
               <% } else { %>
-                <i class="material-icons">account_circle</i>
+                <a href="/auth/google" id="loginBtn">Login with Google</a>
+              <% } %>
+            </div>
+            <div id="signin-buttons">
+              <% if (user) { %>
+                <a href="/logout" id="logoutBtn">Logout</a>
               <% } %>
               <br>
-              <small><%= user.name.first %></small>
-            <% } else { %>
-              <a href="/auth/google" id="loginBtn">Login with Google</a>
-            <% } %>
-          </div>
-          <div id="signin-buttons">
-            <% if (user) { %>
-              <a href="/logout" id="logoutBtn">Logout</a>
-            <% } %>
-            <br>
-            <small>(10000 Items)</small>
-            <input id="cartBtn" type="button" value="CART">
-            <br>
-            <small>(Total $1000000.00)</small>
+              <small>(10000 Items)</small>
+              <input id="cartBtn" type="button" value="CART">
+              <br>
+              <small>(Total $1000000.00)</small>
+            </div>
           </div>
         </div>
-      </div>
+      <div class="spacer"></div>
     </div>
   </header>
+  <div id="main-container">
+    <div id="main-box">
+        <div id="main-content">

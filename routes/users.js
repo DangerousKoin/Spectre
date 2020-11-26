@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const usersCtrl = require('../controllers/users');
 
-router.get('/management/users', usersCtrl.index);
+router.get('/management/index', usersCtrl.index);
+router.get('/management/users', usersCtrl.users);
+
 
 // POST /facts
 // We will already have access to the logged in student on

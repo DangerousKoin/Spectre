@@ -9,20 +9,20 @@ var factSchema = new mongoose.Schema({
     timestamps: true
   });
   
-  var userSchema = new mongoose.Schema({
-    name: {
-        type: Object,
-        full: String,
-        first: String,
-        last: String
-    },
-    email: String,
-    cohort: String,
-    avatar: String,
-    facts: [factSchema],
-    googleId: String
-  }, {
-    timestamps: true
+var userSchema = new mongoose.Schema({
+  name: {
+      type: Object,
+      full: String,
+      first: String,
+      last: String
+  },
+  email: String,
+  cohort: String,
+  avatar: String,
+  facts: [factSchema],
+  googleId: String
+}, {
+  timestamps: true
   });
 
 module.exports = mongoose.model('User', userSchema);
