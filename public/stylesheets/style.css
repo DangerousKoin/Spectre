@@ -26,6 +26,7 @@ a {
   text-decoration: inherit; /* no underline */
 }
 
+
 /* MAIN CONTAINER */
 header {
   position: fixed;
@@ -41,9 +42,23 @@ header {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+th {
+  padding: 0px;
+}
+
+#search-container, #all-users {
+  text-align: left;
+  height: auto;
+  width: 200px;
+}
+#search-bar {
+  width: 200px;
+}
+
+
 #header-container {
   display: inline-block;
-  text-align: start;
+  text-align: left;
   width: 80%;
   min-width: 450px;
   max-width: 1000px;
@@ -146,7 +161,7 @@ header {
   width: 80%;
   min-width: 450px;
   max-width: 1000px;
-  min-height: 1000px;
+  min-height: 500px;
   margin: 0 auto 20px auto;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.75);

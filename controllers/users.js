@@ -11,8 +11,9 @@ function index(req, res, next) {
     res.render('management/index');
 }
 
+
 function users(req, res, next) {
-  console.log(req.query)
+  console.log(req.query.name);
   // Make the query object to use with Student.find based up
   // the user has submitted the search form or now
   let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};

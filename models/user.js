@@ -10,12 +10,9 @@ var factSchema = new mongoose.Schema({
   });
   
 var userSchema = new mongoose.Schema({
-  name: {
-      type: Object,
-      full: String,
-      first: String,
-      last: String
-  },
+  name: String,
+  first: String,
+  last: String,
   email: String,
   cohort: String,
   avatar: String,

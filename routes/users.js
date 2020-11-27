@@ -5,7 +5,6 @@ const usersCtrl = require('../controllers/users');
 router.get('/management/index', usersCtrl.index);
 router.get('/management/users', usersCtrl.users);
 
-
 // POST /facts
 // We will already have access to the logged in student on
 // the server, therefore do not use: /students/:id/facts

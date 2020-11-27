@@ -1,24 +1,31 @@
-<h2>Search Users</h2>
-    <div>
-        <form action="/users" method="GET">
-            <div id="user-search">
-                <!-- search -->
-                <div class="input-field">
-                    <input id="search" type="search" name="name" placeholder="search name" value="<%= name %>" autocomplete="off">
-                    <i class="material-icons">close</i>
-                </div>
-                <p>
-                    <label for="sort-name">
-                        <input name="sort" type="radio" id="sort-name" value="name" class="with-gap"
-                        <%= sortKey === 'name' ? 'checked' : '' %> >
-                        <span>Sort by Name</span>
-                    </label>
-                    <label for="sort-cohort">
-                        <input name="sort" type="radio" id="sort-cohort" value="cohort" class="with-gap"
-                        <%= sortKey === 'cohort' ? 'checked' : '' %> >
-                        <span>Sort by Cohort</span>
-                    </label>
-                </p>
-            </div>
-        </form>
-    </div><br>
+<div id="search-container">
+    <form action="/users" method="GET">
+        <table class="centered">
+            <thead>
+                <tr>
+                    <th>
+                        <div id="search-bar"><input id="search" type="search" name="name" placeholder="search name" value="<%= name %>" autocomplete="on">
+                        </div>
+                            
+                    </th>
+                    <th>
+                        <i class="tiny material-icons">close</i>
+                    </th>
+                    <th>
+                        <label for="sort-name">
+                            <input name="sort" type="radio" id="sort-name" value="name" class="with-gap"
+                            <%= sortKey === 'name' ? 'checked' : '' %> >
+                            <span>Name</span>
+                        </label>
+                        <br>
+                        <label for="sort-cohort">
+                            <input name="sort" type="radio" id="sort-cohort" value="cohort" class="with-gap"
+                            <%= sortKey === 'cohort' ? 'checked' : '' %> >
+                            <span>Cohort</span>
+                        </label>
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </form>
+</div><br>
