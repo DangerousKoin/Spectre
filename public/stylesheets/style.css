@@ -176,9 +176,10 @@ i {
 }
  #search-container {
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
   height: auto;
   width: 90%;
+  white-space: nowrap;
 }
 #all-users {
   width: auto;

@@ -17,17 +17,13 @@ function id(req, res, next) {
 
 
 function users(req, res, next) {
-  let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
+  let modelQuery = req.query.email ? {email: new RegExp(req.query.email, 'i')} : {};
   // Default to sorting by name
   let sortKey = req.query.sort || 'name';
   User.find(modelQuery)
   .sort(sortKey).exec(function(err, users) {
     if (err) return next(err);
-    if (sortKey) {
-      res.render('management/users', { users, name: req.query.name, sortKey });
-    } else {
-      res.render('management/users', { users, name: req.query.name, sortKey });
-    }
+    res.render('management/users', { users, email: req.query.email, sortKey, modelQuery });
     // Passing search values, name & sortKey, for use in the EJS
     
   });
