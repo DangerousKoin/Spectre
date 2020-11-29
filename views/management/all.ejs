@@ -7,14 +7,11 @@
                         <input id="search" class="search-input" type="search" 
                         name="name" placeholder="search user <%= sortKey %>" 
                         value="<%= name %>" autocomplete="off">
-                    <a href="/users"><i class="material-icons">clear</i></a>
+                    <a href="/users?sort=<%= sortKey %>&name="><i class="material-icons">clear</i></a>
                     </th>
                 </tr>
-            </thead>
-        
-    <br>
+            </thead><br>
     <div id="all-users">
-        
                 <thead>
                     <tr>
                         <th><label for="sort-name">
