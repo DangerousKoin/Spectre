@@ -4,6 +4,7 @@ const usersCtrl = require('../controllers/users');
 
 router.get('/management/index', usersCtrl.index);
 router.get('/management/users', usersCtrl.users);
+router.get('/users*', usersCtrl.users) // redirect search result to display it
 
 // POST /facts
 // We will already have access to the logged in student on

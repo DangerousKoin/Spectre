@@ -3,6 +3,7 @@ const User = require('../models/user');
 module.exports = {
   index,
   users,
+  id,
   addFact,
   delFact
 };
@@ -10,12 +11,12 @@ module.exports = {
 function index(req, res, next) {
     res.render('management/index');
 }
+function id(req, res, next) {
+  console.log(res);
+}
 
 
 function users(req, res, next) {
-  console.log(req.query.name);
-  // Make the query object to use with Student.find based up
-  // the user has submitted the search form or now
   let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
   // Default to sorting by name
   let sortKey = req.query.sort || 'name';
