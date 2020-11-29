@@ -42,18 +42,7 @@ header {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-th {
-  padding: 0px;
-}
 
-#search-container, #all-users {
-  text-align: left;
-  height: auto;
-  width: 200px;
-}
-#search-bar {
-  width: 200px;
-}
 
 
 #header-container {
@@ -172,7 +161,33 @@ th {
   width: 100%;
   text-align: center;
   color: rgba(250, 250, 250, 1);
-  font-size: x-large;
+}
+
+th, tr, td, tbody, thead {
+  padding: 2px;
+}
+i {
+  width: 25px;
+  height: 25px;
+}
+#search {
+  color: white;
+  width: 200px;
+}
+ #search-container {
+  margin: 0 auto;
+  text-align: left;
+  height: auto;
+  width: 90%;
+}
+#all-users {
+  width: auto;
+}
+#name-table {
+  width: auto;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
 }
 
 /* SMALL SCREENS */

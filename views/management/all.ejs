@@ -1,16 +1,52 @@
-<div id="all-users">
-    <% users.forEach(function(user) { %>
-        <% if (user.avatar) { %>
-            <img src="<%= user.avatar %>" alt="avatar" class="square responsive-img" width="25">
-        <% } else { %>
-            <i class="medium material-icons">account_square</i>
-        <% } %>
-    <%= user.name %><br>
-    <%= user._id %>
-    <div id="collection">
-        <% user.facts.forEach(function(fact) { %>
-            <li><%- fact.text %></li>
-        <% }) %>
+<div id="search-container">
+    <form action="/users" method="GET">
+        <table id="name-table" class="highlight">
+            <thead>
+                <tr>
+                    <th>
+                        <input id="search" class="search-input" type="search" 
+                        name="name" placeholder="search user <%= sortKey %>" 
+                        value="<%= name %>" autocomplete="off">
+                    <a href="/users"><i class="material-icons">clear</i></a>
+                    </th>
+                </tr>
+            </thead>
+        
+    <br>
+    <div id="all-users">
+        
+                <thead>
+                    <tr>
+                        <th><label for="sort-name">
+                            <a href="/users?sort=name&name="><input name="sort" type="radio" id="sort-name" value="name" class="with-gap"
+                            <%= sortKey === 'name' ? 'checked' : '' %> >
+                            <span>Name</span></a>
+                        </label></th>
+                        <th><label for="sort-email">
+                            <a href="/users?sort=email&name="><input name="sort" type="radio" id="sort-email" value="email" class="with-gap"
+                            <%= sortKey === 'email' ? 'checked' : '' %> >
+                            <span>Email</span></a>
+                        </label></th>
+                    </tr>
+                </thead>
+            </form>
+                <tbody>
+                    <% users.forEach(function(user) { %>
+                    <tr>
+                        <td>
+                            <% if (user.avatar) { %>
+                                <img src="<%= user.avatar %>" alt="avatar" class="square responsive-img" width="25">
+                            <% } else { %>
+                                <i class="small material-icons">account_box</i>
+                            <% } %>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.email %>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>   
+        </table>
     </div>
-    <% }) %>
 </div><br>

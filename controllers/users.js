@@ -23,8 +23,13 @@ function users(req, res, next) {
   User.find(modelQuery)
   .sort(sortKey).exec(function(err, users) {
     if (err) return next(err);
+    if (sortKey) {
+      res.render('management/users', { users, name: req.query.name, sortKey });
+    } else {
+      res.render('management/users', { users, name: req.query.name, sortKey });
+    }
     // Passing search values, name & sortKey, for use in the EJS
-    res.render('management/users', { users, name: req.query.name, sortKey });
+    
   });
 }
 
