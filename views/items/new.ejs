@@ -1,12 +1,9 @@
 <%- include('../partials/header') %>
 
-<p>-Please ensure New Ticket is not in dropdown-
+<p>-Please ensure New Item is not in dropdown-
   <select>
-    <% items.forEach(function(u) { %>
-      <% let cart = u.cart %>
-      <% cart.forEach(function(i) { %>
+    <% items.forEach(function(i) { %>
       <option><%= i.name %></option>
-      <% }); %>
     <% }) %>
   </select>
 </p>

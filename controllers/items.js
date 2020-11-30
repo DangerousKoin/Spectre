@@ -10,7 +10,7 @@ module.exports = {
 };
 
 function newItem(req, res) {
-  User.find({}, function (err, items) {
+  Item.find({}, function (err, items) {
     res.render('items/new', {items});
   })
 }

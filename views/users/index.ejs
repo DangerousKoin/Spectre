@@ -2,21 +2,18 @@
 <table id="list">
   <thead>
     <tr>
-      
-    </tr>
-    <tr>
+      <th></th>
       <th>Name</th>
       <th>Email</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <% users.forEach(function(u) { %>
       <tr>
+        <td><img src="<%= u.avatar %>" width="25"></td>
         <td><%= u.name %></td>
         <td><%= u.email %></td>
         <td><a href="/users/<%= u._id %>">DETAILS</a></td>
-        
       </tr>
     <% }); %>
   </tbody>
