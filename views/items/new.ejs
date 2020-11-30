@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<p>-Please ensure New Ticket is not in dropdown-
+  <select>
+    <% items.forEach(function(u) { %>
+      <% let cart = u.cart %>
+      <% cart.forEach(function(i) { %>
+      <option><%= i.name %></option>
+      <% }); %>
+    <% }) %>
+  </select>
+</p>
+<form id="add-item-form" action="/items" method="POST">
+    <label>Name:
+      <input name="name">
+    </label><br>
+    <label>Price:
+      <input name="price" type="number">
+    </label><br>
+  <input type="submit" value="Add Item">
+</form>
+
+<%- include('../partials/footer') %>
