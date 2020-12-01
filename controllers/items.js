@@ -2,7 +2,7 @@ const Item = require('../models/item');
 const User = require('../models/user');
 
 module.exports = {
-  new: newItem,
+  newItem,
   addItem,
   addToCart,
   delItem,
