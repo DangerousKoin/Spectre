@@ -15,13 +15,43 @@ require('./config/database');
 // configure Passport
 require('./config/passport');
 
+<<<<<<< HEAD
+// session middleware
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> parent of 97d68ce... New Routing In Progress
 // session middleware
 var indexRoutes = require('./routes/index');
 var usersRoutes = require('./routes/users');
 var itemsRoutes = require('./routes/items');
+=======
+// require routes
+>>>>>>> f0c3540090b1c166c816c4325652024df5c8a0a6
+var indexRoutes = require('./routes/index');
+var usersRoutes = require('./routes/users');
+var itemsRoutes = require('./routes/items');
+
+<<<<<<< HEAD
+// create the Express app
+var app = express();
+=======
+
+
+
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
 
 // create the Express app
 var app = express();
+<<<<<<< HEAD
+>>>>>>> parent of 97d68ce... New Routing In Progress
+=======
+>>>>>>> parent of 97d68ce... New Routing In Progress
+>>>>>>> f0c3540090b1c166c816c4325652024df5c8a0a6
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,8 +80,23 @@ app.use(function(req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+<<<<<<< HEAD
 app.use('/users', usersRoutes);
 app.use('/items', itemsRoutes);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> parent of 97d68ce... New Routing In Progress
+app.use('/users', usersRoutes);
+app.use('/items', itemsRoutes);
+=======
+app.use('/', usersRoutes);
+app.use('/', itemsRoutes);
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
+>>>>>>> f0c3540090b1c166c816c4325652024df5c8a0a6
 
 
 // ERROR MESSAGING //
@@ -59,6 +104,10 @@ app.use('/items', itemsRoutes);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+<<<<<<< HEAD
+>>>>>>> parent of 97d68ce... New Routing In Progress
+=======
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
 
 // error handler
 app.use(function(err, req, res, next) {
