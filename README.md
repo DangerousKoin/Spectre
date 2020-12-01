@@ -3,7 +3,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 Spectre Rentals is a speaker rental app for locals of Seattle, WA area.
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 ### Built With
 
