@@ -10,15 +10,22 @@ var methodOverride = require('method-override');
 // load the env vars
 require('dotenv').config();
 
-// create the Express app
-var app = express();
-
 // connect to the MongoDB with mongoose
 require('./config/database');
 // configure Passport
 require('./config/passport');
 
+<<<<<<< HEAD
 
+=======
+// session middleware
+var indexRoutes = require('./routes/index');
+var usersRoutes = require('./routes/users');
+var itemsRoutes = require('./routes/items');
+
+// create the Express app
+var app = express();
+>>>>>>> parent of 97d68ce... New Routing In Progress
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,6 +50,18 @@ app.use(passport.session());
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+<<<<<<< HEAD
+=======
+app.use('/users', usersRoutes);
+app.use('/items', itemsRoutes);
+
+
+// ERROR MESSAGING //
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+>>>>>>> parent of 97d68ce... New Routing In Progress
 
 
 // invalid request, send 404 page
