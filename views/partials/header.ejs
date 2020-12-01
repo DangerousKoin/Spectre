@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Audiowide&family=Syncopate:wght@700&display=swap&icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png">
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <title>SPECTRE</title>
+  </head>
+  <body>
+    <header>
+      <div id="header-container">
+        <div class="spacer"></div>
+          <div id="logo-container">
+            <div id="logo-box">
+              <div id="logo">
+                <h1><a href="../">SPECTRE</a></h1>
+                <h2><a href="../">Speaker Rentals</a></h2>
+              </div>
+            </div>
+          </div>
+        <div class="spacer-center"></div>
+          <div id="signin-container">
+            <div id="signin-box">
+              <div id="signin-info">
+                <% if (user) { %>
+                  <% if (user.avatar) { %>
+                    <img src="<%= user.avatar %>" alt="avatar" class="box responsive-img" width="50">
+                  <% } else { %>
+                    <i class="medium material-icons">account_box</i>
+                  <% } %>
+                  <br>
+                  <small><%= user.first %></small>
+                <% } else { %>
+                  <a href="/auth/google" id="loginBtn">GOOGLE LOGIN</a>
+                <% } %>
+              </div>
+              <div id="signin-buttons">
+                <% if (user) { %>
+                  <a href="/logout" id="logoutBtn">LOGOUT</a>
+                  <br>
+                  <a href="/users/<%= user._id %>" id="cartBtn">CART</a>
+                  <% if (user.cart.length) { %>
+                    <% let total = 0 %>
+                    <% user.cart.forEach(function(i) { %>
+                      <% total += i.price %>
+                    <% }); %>
+                      <% if (user.cart.length >= 1) { %>
+                      <small><%= user.cart.length %> Item</small>
+                      <br>
+                      <small>Total $<%= total %></small>
+                      <% } else { %>
+                      <small><%= user.cart.length %> Items</small>
+                      <br>
+                      <small>Total $<%= total %></small>
+                      <% }; %>
+                  <% } %>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        <div class="spacer"></div>
+      </div>
+      <div id="nav-container">
+        <div id="nav-box">
+          <table id="nav-bar">
+            <thead>
+              <tr>
+                <th><a href="/users/">Management Portal</a></th>
+        
+                <th><a href="/items/new">New Item</a></th>
+        
+                <th><a href="/users/new">New User</a></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </header>
+    
+    <div id="main-container">
+      <div id="main-box">
+          <div id="main-content">
