@@ -1,10 +1,12 @@
+var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-// session middleware
 var session = require('express-session');
 var passport = require('passport');
+
+// load and create the methodOverride
 var methodOverride = require('method-override');
 
 // load the env vars
@@ -17,6 +19,7 @@ require('./config/passport');
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
@@ -25,6 +28,16 @@ require('./config/passport');
 var indexRoutes = require('./routes/index');
 var usersRoutes = require('./routes/users');
 var itemsRoutes = require('./routes/items');
+=======
+// require routes
+var indexRoutes = require('./routes/index');
+var usersRoutes = require('./routes/users');
+var itemsRoutes = require('./routes/items');
+
+
+
+
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
 
 // create the Express app
 var app = express();
@@ -49,13 +62,18 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Custom middleware that passes req.user to all templates
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -63,6 +81,10 @@ app.use('/', indexRoutes);
 >>>>>>> parent of 97d68ce... New Routing In Progress
 app.use('/users', usersRoutes);
 app.use('/items', itemsRoutes);
+=======
+app.use('/', usersRoutes);
+app.use('/', itemsRoutes);
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
 
 
 // ERROR MESSAGING //
@@ -70,12 +92,20 @@ app.use('/items', itemsRoutes);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+<<<<<<< HEAD
 >>>>>>> parent of 97d68ce... New Routing In Progress
+=======
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
 
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-// invalid request, send 404 page
-app.use(function(req, res) {
-  res.status(404).send('Cant find that!');
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 module.exports = app;
