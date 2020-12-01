@@ -51,7 +51,7 @@ app.use(function(req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/users', usersRoutes);
-app.use('/', itemsRoutes);
+app.use('/items', itemsRoutes);
 
 
 // ERROR MESSAGING //

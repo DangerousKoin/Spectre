@@ -43,19 +43,19 @@
                   <br>
                   <a href="/users/<%= user._id %>" id="cartBtn">CART</a>
                   <% if (user.cart.length) { %>
-                    <% console.log(user.cart) %>
                     <% let total = 0 %>
                     <% user.cart.forEach(function(i) { %>
-                      <% console.log(i); %>
                       <% total += i.price %>
                     <% }); %>
-                      <% if (user.cart.length === 1) { %>
-                      <small>1 Item</small>
+                      <% if (user.cart.length >= 1) { %>
+                      <small><%= user.cart.length %> Item</small>
+                      <br>
+                      <small>Total $<%= total %></small>
                       <% } else { %>
                       <small><%= user.cart.length %> Items</small>
-                      <% }; %>
-                    <br>
+                      <br>
                       <small>Total $<%= total %></small>
+                      <% }; %>
                   <% } %>
                 <% } %>
               </div>
