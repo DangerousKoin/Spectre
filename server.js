@@ -16,8 +16,11 @@ require('./config/database');
 require('./config/passport');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> parent of 97d68ce... New Routing In Progress
 // session middleware
 var indexRoutes = require('./routes/index');
 var usersRoutes = require('./routes/users');
@@ -25,6 +28,9 @@ var itemsRoutes = require('./routes/items');
 
 // create the Express app
 var app = express();
+<<<<<<< HEAD
+>>>>>>> parent of 97d68ce... New Routing In Progress
+=======
 >>>>>>> parent of 97d68ce... New Routing In Progress
 
 // view engine setup
@@ -51,7 +57,10 @@ app.use(passport.session());
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 97d68ce... New Routing In Progress
 app.use('/users', usersRoutes);
 app.use('/items', itemsRoutes);
 
