@@ -1,4 +1,25 @@
 <%- include('../partials/header') %>
+<<<<<<< HEAD
+<table id="list">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(function(u) { %>
+      <tr>
+        <td><img src="<%= u.avatar %>" width="25"></td>
+        <td><%= u.name %></td>
+        <td><%= u.email %></td>
+        <td><a href="/users/<%= u._id %>">DETAILS</a></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+=======
 
 <br>
 <div id="youtube-container">
@@ -6,4 +27,5 @@
     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen></iframe>
 </div>
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
 <%- include('../partials/footer') %>

@@ -1,21 +1,38 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 const User = require('../models/user');
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
 
 // The root route renders our only view
 router.get('/', function(req, res) {
   res.redirect('/users');
 });
+=======
+const indexCtrl = require('../controllers/index');
+
+router.get('/', indexCtrl.index);
+>>>>>>> parent of 97d68ce... New Routing In Progress
+=======
+const indexCtrl = require('../controllers/index');
+
+router.get('/', indexCtrl.index);
+>>>>>>> parent of 97d68ce... New Routing In Progress
 
 // Google OAuth login route
 // User wants to log in
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
-));
+))
 
 // Google OAuth callback route
+<<<<<<< HEAD
+<<<<<<< HEAD
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
@@ -23,12 +40,35 @@ router.get('/oauth2callback', passport.authenticate(
     failureRedirect: '/users',
   }
 ));
+=======
+=======
+>>>>>>> parent of 97d68ce... New Routing In Progress
+router.get('/oauth2callback', passport.authenticate('google', {
+successRedirect : '/', 
+failureRedirect : '/'
+}))
+<<<<<<< HEAD
+>>>>>>> parent of 97d68ce... New Routing In Progress
+=======
+>>>>>>> parent of 97d68ce... New Routing In Progress
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();
+<<<<<<< HEAD
+  res.redirect('/');
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
   res.redirect('/users');
+>>>>>>> 97d68ce4b18dca04aaa5ff6a7f93b1e7742c7d1a
 });
+=======
+})
+>>>>>>> parent of 97d68ce... New Routing In Progress
+=======
+})
+>>>>>>> parent of 97d68ce... New Routing In Progress
 
 router.get('/all', allUsers);
 
