@@ -1,4 +1,4 @@
-### SPECTRE Speaker Rentals
+# SPECTRE Speaker Rentals
 
 ![main_page](https://i.imgur.com/f2lFD8m.jpg)
 
@@ -26,11 +26,11 @@
 
 https://trello.com/b/uQZAZZYg/spectre
 
-# Current MVP items:
+### Current MVP items:
 * Need to add products to landing page
 * Need to finish CRUD operations
 
-# Future additions are:
+### Future additions are:
 * Management portal with rental display
 * Pop out cart
 * Credit Card processing
