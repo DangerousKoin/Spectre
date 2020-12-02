@@ -4,7 +4,7 @@ const Item = require('../models/item');
 module.exports = {
   index,
   show,
-  new: newUser,
+  newUser,
   addUser,
   delUser
 };
