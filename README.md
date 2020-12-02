@@ -1,14 +1,13 @@
 # SPECTRE Speaker Rentals
-
 ![main_page](https://i.imgur.com/f2lFD8m.jpg)
 
-<!-- ABOUT THE PROJECT -->
-### About The Project
 
+<!-- ABOUT THE PROJECT -->
+## About The Project
 * Spectre Rentals is a speaker rental app for locals of Seattle, WA area.
 
-### Built With
 
+## Built With
 * HTML
 * CSS
 * JS
@@ -16,14 +15,14 @@
 * MongoDB
 * NodeJS
 
-<!-- USAGE EXAMPLES -->
-### Usage
 
+<!-- USAGE EXAMPLES -->
+## Usage
 * Deployed App Link Will Go Here.
 
-<!-- ROADMAP -->
-### Roadmap
 
+<!-- ROADMAP -->
+## Roadmap
 https://trello.com/b/uQZAZZYg/spectre
 
 ##### Current MVP items:
@@ -36,9 +35,9 @@ https://trello.com/b/uQZAZZYg/spectre
 * Credit Card processing
 * & More...
 
-<!-- CONTACT -->
-### Contact
 
+<!-- CONTACT -->
+## Contact
 Email: kory.breiten@gmail.com
 <br>
 Project Link: [https://github.com/DangerousKoin/Spectre](https://github.com/DangerousKoin/Spectre)
