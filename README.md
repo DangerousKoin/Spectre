@@ -1,5 +1,7 @@
 ## SPECTRE Speaker Rentals
 
+!main page screenshot](https://i.imgur.com/f2lFD8m.jpg)
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 Spectre Rentals is a speaker rental app for locals of Seattle, WA area.
