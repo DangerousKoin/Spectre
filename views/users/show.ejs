@@ -32,10 +32,9 @@
             <td><%= i.due %></td>
             <td><%= i.return %></td>
             <td>
-                <form action="/users/<%= user._id %>/cart/<%= i.id %>?_method=DELETE" method="POST">
-                  <select name="delFromCart"><option value="<%= i.id %>"></option></select>
-                <button type="submit">X</button>
-                </form>
+                <form action="/cart/<%= i.id %>?_method=DELETE" method="POST"
+                  name="itemId" value="${i._id}">
+                <button type="submit">X</button></form>
             </td>
           </tr>
           <% }); %>

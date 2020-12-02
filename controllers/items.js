@@ -34,23 +34,17 @@ function addToCart(req, res) {
 }
 
 function delItem(req, res) {
-  // Note the cool "dot" syntax to query on the property of a subdoc
-  Item.findOne({'items._id': req.params.id}, function(err, item) {
-    if (err) return next(err);
-    item.remove();
-      // Redirect back to the book's show view
-    res.redirect(`/users/show`);
-    });
-    res.redirect(`/users/${user._id}`);
+  Item.findById(req.params.id).exec(function (err, item) {
+  item.remove();
+  res.redirect('/items/new');
+  });
 }
 
 function delFromCart(req, res) {
-  // Note the cool "dot" syntax to query on the property of a subdoc
-  User.findById({'user._id': req.params.id}, function (err, user) {
-    user.cart.remove({'i.id': req.params.id});
-    user.save(function (err) {
-      if (err) return next(err);
-      res.redirect(`/users/${user._id}`);
-    });
+  req.user.cart.findById(req.params.id, function (err, item) {
+    item.remove();
+    if (err) return next(err);
+    res.redirect('/users/');
   });
+  
 }

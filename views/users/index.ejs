@@ -14,7 +14,7 @@
         <td><%= u.name %></td>
         <td><%= u.email %></td>
         <td><a href="/users/<%= u._id %>">DETAILS</a></td>
-        <td><form name="delUser" value="<%= u.id %>" action="/users/<%= u._id %>?_method=DELETE" method="POST">
+        <td><form name="delUser" value="<%= u.id %>" action="/users?_method=DELETE" method="POST">
           
         <button type="submit">X</button>
         </form></td>

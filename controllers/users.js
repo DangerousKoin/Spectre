@@ -47,9 +47,6 @@ function delUser(req, res) {
   User.findById(req.params.id).exec(function(err, user) {
     if (err) return next(err);
     user.remove();
-    
     });
-    
     res.redirect('/');
-    
-}
+  }

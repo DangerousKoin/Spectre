@@ -1,11 +1,26 @@
 <%- include('../partials/header') %>
 
-<p>-Please ensure New Item is not in dropdown-
-  <select>
-    <% items.forEach(function(i) { %>
-      <option><%= i.name %></option>
-    <% }) %>
-  </select>
+<p>Product List
+  <table id="list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% items.forEach(function(i) { %>
+        <tr>
+          <td><%= i.name %></td>
+          <td>$<%= i.price %></td>
+          <td><form name="delItem" value="<%= i.id %>" action="/items/<%= i.id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+          </form></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
 </p>
 <form id="add-item-form" action="/items" method="POST">
     <label>Name:
