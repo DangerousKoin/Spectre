@@ -5,8 +5,9 @@
  */
 
 var app = require('../server');
-var debug = require('debug')('sei-students:server');
+var debug = require('debug')('spectre-rentals:server');
 var http = require('http');
+var https = require('https');
 
 /**
  * Get port from environment and store in Express.
@@ -19,7 +20,7 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = https.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
