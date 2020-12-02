@@ -39,5 +39,6 @@ https://trello.com/b/uQZAZZYg/spectre
 <!-- CONTACT -->
 ### Contact
 
-* Email: kory.breiten@gmail.com
-* Project Link: [https://github.com/DangerousKoin/Spectre](https://github.com/DangerousKoin/Spectre)
+Email: kory.breiten@gmail.com
+<br>
+Project Link: [https://github.com/DangerousKoin/Spectre](https://github.com/DangerousKoin/Spectre)
