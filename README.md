@@ -23,6 +23,14 @@ Deployed App Link Will Go Here.
 
 https://trello.com/b/uQZAZZYg/spectre
 
+Need to add products to landing page
+Need to finish CRUD operations
+
+Future additions are:
+Management portal with rental display
+Pop out cart
+Credit Card processing
+
 <!-- CONTACT -->
 ## Contact
 
