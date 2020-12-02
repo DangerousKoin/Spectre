@@ -24,15 +24,17 @@
 <!-- ROADMAP -->
 ## Roadmap
 
-* https://trello.com/b/uQZAZZYg/spectre
+https://trello.com/b/uQZAZZYg/spectre
 
+# Current MVP items:
 * Need to add products to landing page
 * Need to finish CRUD operations
 
-* Future additions are:
+# Future additions are:
 * Management portal with rental display
 * Pop out cart
 * Credit Card processing
+* & More...
 
 <!-- CONTACT -->
 ## Contact
