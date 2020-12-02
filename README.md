@@ -1,6 +1,6 @@
 ## SPECTRE Speaker Rentals
 
-!main_page](https://i.imgur.com/f2lFD8m.jpg)
+![main_page](https://i.imgur.com/f2lFD8m.jpg)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
