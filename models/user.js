@@ -9,23 +9,21 @@ const userSchema = new Schema({
   avatar: {type: String},
   googleId: {type: String},
   admin: {type: Boolean, default: false},
-  cart: [{type: Schema.Types.ObjectId, ref: 'Item'}],
-          rentDate: {type: Date, // when they rented it
-            default: function () {
-            let rentDate = new Date().getTime();
-            console.log(rentDate);
-            return rentDate;
-            }},
-          rentDays: {type: Number,
-            default: function () {
-            let rentDays = new Date().getTime();
-            console.log(rentDays);
-            return rentDays;
-            }},
+  cart: [{
+          type: Schema.Types.ObjectId, ref: 'Item',
+          name: {type: Schema.Types.name, ref: 'Item'},
+          price: {type: Schema.Types.price, ref: 'Item'},
+          rentDate: {type: Date, default: function () {
+            let upDate = new Date().getTime();
+            return upDate;
+          }},
+          rentDays: {type: Number, default: 1},
           returnDate: {type: Date}
+        }]
 },
 {
-  timestamps: true
-});
+timestamps: true
+})
+
 
 module.exports = mongoose.model('User', userSchema);

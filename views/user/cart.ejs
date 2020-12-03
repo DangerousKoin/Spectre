@@ -2,7 +2,7 @@
 <section id="show-page">
   
   
-  <% if (user.cart.length) { %>
+  <% if (user.cart.length > 0) { %>
     <table>
       <thead>
         <tr>
@@ -15,22 +15,24 @@
       </thead>
       <tbody>
         <% let total = 0 %>
-        <% user.cart.forEach(function(i) { %>
+        <% user.cart.forEach(function(it) { %>
+          <% items.find(it).exec(function(i) { %>
           <% total += i.price %>
         <tr>
           <td><%= i.item %></td>
           <td><%= i.price %></td>
-          <td><%= i.rent %></td>
-          <td><%= i.due %></td>
-          <td><%= i.return %></td>
+          <td><%= i.rentDays %></td>
+          <td><%= i.rentDate %></td>
           <td>
               <form action="/cart?_method=DELETE" method="POST">
                 <input type="hidden" name="userId" value=<%= user._id %>>
-                <input type="hidden" name="itemId" value=<%= user._id %>>
+                <input type="hidden" name="itemId" value=<%= i.id %>>
               <button type="submit">X</button></form>
           </td>
         </tr>
-        <% }); %>
+          <% }); %>
+          <% }); %>
+
         <tr>
             <td>Total $<%= total %></td>
         </tr>
@@ -38,6 +40,6 @@
     </table>
   <% } else { %>
     <h5>No Items In Cart.</h5>
-  <% } %>
+  <% }; %>
 </section>
 <%- include('../partials/footer') %>

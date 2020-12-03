@@ -20,17 +20,18 @@ function index(req, res) {
 }
 
 function cart(req, res) {
-  User.find({}, function(err, users, next) {
+  User.find({}, function(users) {
     Item.find({}, function(err, items, next) {
       if (err) return next(err);
       res.render('user/cart', {users, items});
     });
-    if (err) return next(err);
   });
 }
 
 function addToCart(req, res) {
-  User.findById(req.body.userId, function (err, user, next) {
+  User.findById(req.body.userId).exec(function (err, user, next) {
+    console.log("user ", req.body.userId);
+    console.log("item ", req.body.itemId);
     if (err) return next(err);
     user.cart.push(req.body.itemId);
     user.save();

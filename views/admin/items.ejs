@@ -21,7 +21,7 @@
       <td>$<%= i.price %></td>
       <td>
         <form action="/items?_method=DELETE" method="POST">
-          <input type="hidden" name="itemId" value=<%= i.id %>>
+          <input type="hidden" name="itemId" value="<%= i.id %>">
         <button type="submit">X</button></form>
       </td>
     </tr>
