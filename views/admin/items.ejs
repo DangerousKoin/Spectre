@@ -1,19 +1,20 @@
 <%- include('../partials/header') %>
+<h1><a href="/admin">> USERS <</a></h1>
 <% if (items.length > 0) { %>
 <table>
   <thead>
-      <tr>
-          <H1>CURRENT PRODUCTS</H1>
-      </tr>
-      <tr>
-          <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
-      </tr>
+    <tr>
+        <H1>CURRENT PRODUCTS</H1>
+    </tr>
+    <tr>
+        <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
+    </tr>
   </thead>
   <tbody>
-      <tr>
-          <th>Name</th>
-          <th>Price</th>
-      </tr>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
       <% items.forEach(function(i) { %>
     <tr>
       <td><%= i.name %></td>
