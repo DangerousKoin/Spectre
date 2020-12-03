@@ -19,18 +19,24 @@ function index(req, res) {
   });
 }
 
-function newItem(err, req, res, next) {
+function newItem(req, res) {
+  User.find({}, function(err, users) {
+    Item.find({}, function(err, items) {
+      if (err) return next(err);
+      res.render('admin/items', {users, items});
+    });
     if (err) return next(err);
-    res.redirect('/admin/items');
+  });
 }
 
-function addItem(err, req, res, next) {
+function addItem(req, res) {
+  console.log(req.body);
   const item = new Item(req.body);
   item.save(function(err) {
     if (err) return next(err);
-    res.redirect('/admin/items');
+    res.redirect('/items');
   });
-  if (err) return next(err);
+  
 }
 
 function delUser(err, req, res, next) {
@@ -47,7 +53,7 @@ function delItem(err, req, res, next) {
   Item.findById(req.params.id).exec(function (err, item, next) {
     if (err) return next(err);
     item.remove();
-    res.redirect('/admin/items');
+    res.redirect('/items');
     });
   if (err) return next(err);
 }

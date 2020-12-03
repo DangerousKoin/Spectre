@@ -19,9 +19,14 @@ function index(req, res) {
   });
 }
 
-function cart(err, req, res, next) {
-  if (err) return next(err);
-  res.redirect('/user/cart');
+function cart(req, res) {
+  User.find({}, function(err, users, next) {
+    Item.find({}, function(err, items, next) {
+      if (err) return next(err);
+      res.render('user/cart', {users, items});
+    });
+    if (err) return next(err);
+  });
 }
 
 function addToCart(err, req, res, next) {

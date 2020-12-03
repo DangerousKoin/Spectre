@@ -2,7 +2,7 @@
 <table id="list">
   <thead>
     <tr>
-      <th><a href="/admin/items">New Item</a></th>
+      <th><a href="/items">New Item</a></th>
     </tr>
     <tr>
       <th></th>
@@ -16,7 +16,7 @@
         <td><img src="<%= u.avatar %>" width="25"></td>
         <td><%= u.name %></td>
         <td><%= u.email %></td>
-        <td><a href="/users/<%= u._id %>">DETAILS</a></td>
+        <td><a href="/user/<%= u._id %>">DETAILS</a></td>
         <td><form name="delUser" value="<%= u.id %>"
           action="/users/<%= u.id %>?_method=DELETE" method="POST">
           
