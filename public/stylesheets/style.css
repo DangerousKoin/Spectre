@@ -219,6 +219,14 @@ i {
   height: 25px;
   color: rgba(0, 0, 225, 1);
 }
+#error {
+  background-color: black;
+  font-size: 12px;
+  width: 98%;
+  margin: 0 auto;
+  text-align: left;
+  word-wrap: none;
+}
 
 /* SMALL SCREENS */
 /* @media only screen and (max-width: 500px) {

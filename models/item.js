@@ -3,19 +3,21 @@ const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
   name: {type: String},
-  price: {type: Number}, // tell user per item or per day
+  price: {type: Number, default: 50}, // tell user per item or per day
   rent: {type: Date, // when they rented it
-    default: function () {
-    return new Date().getFullYear();
-    }},
+          default: function () {
+            let rent = new Date().toLocaleDateString()
+            console.log(rent);
+            return rent;
+          }},
   due: {type: Date, // when it is due back for return
     default: function () {
-    return new Date().getFullYear();
+      let due = new Date().toLocaleDateString()
+      console.log(due);
+      return due;
     }},
   return: {type: Date, // when they actually return it
-    default: function () {
-    return new Date().getFullYear();
-    }}
+    }
 },
 {
   timestamps: true

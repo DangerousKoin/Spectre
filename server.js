@@ -16,9 +16,9 @@ require('./config/database');
 require('./config/passport');
 
 // session middleware
-var indexRoutes = require('./routes/index');
-var usersRoutes = require('./routes/users');
-var itemsRoutes = require('./routes/items');
+var indexRoutes = require('./routes/indexRoute');
+var userRoutes = require('./routes/userRoute');
+var adminRoutes = require('./routes/adminRoute');
 
 // create the Express app
 var app = express();
@@ -50,8 +50,8 @@ app.use(function(req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
-app.use('/', usersRoutes);
-app.use('/', itemsRoutes);
+app.use('/', userRoutes);
+app.use('/', adminRoutes);
 
 
 // ERROR MESSAGING //

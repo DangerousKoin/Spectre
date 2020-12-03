@@ -10,6 +10,7 @@ const userSchema = new Schema({
   email: {type: String},
   avatar: {type: String},
   googleId: {type: String},
+  admin: {type: Boolean, default: false},
   cart: [{type: Schema.Types.ObjectId, ref: 'Item'}]
 },
 {
