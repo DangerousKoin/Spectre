@@ -29,33 +29,25 @@
   <% } else { %>
   <thead>
       <tr>
-          <H1>NO PRODUCTS</H1>
+        <H1>NO PRODUCTS</H1>
       </tr>
       <tr>
-          <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
+        <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
       </tr>
   </thead>
 </table>
   <% }; %>
 <table>
   </tbody>
-    <tr>
-      <td>
+    <tr><td>
       <form id="addItem" action="/items" method="POST">
       <label>Name: <input name="name" type="string"></label>
-      </td>
-    </tr>
-    <tr>
-      <td>
+    </td></tr><tr><td>
       <label>Price: <input name="price" type="number" value="50"></label>
-      </td>
-    </tr>
-    <tr>
-      <td>
+    </td></tr><tr><td>
       <input type="submit" value="Add Item">
       </form>
-      </td>
-    </tr>
+    </td></tr>
   </tbody>
 </table>
 <%- include('../partials/footer') %>

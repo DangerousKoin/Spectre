@@ -121,15 +121,17 @@ header {
   height: 80%;
   margin-top: 5px;
   white-space: nowrap;
-  color: gold;
+  color: rgb(200, 200, 200);
 }
 #loginBtn, #logoutBtn, #cartBtn {
-  color: rgba(0, 0, 225, 1);
-  background-color: rgb(171, 183, 192);
-  border-radius: 5px;
-  font-size: 10px;
+  color: rgb(173, 173, 173);
+  background-color: rgb(0, 17, 114);
+  border: 2px solid black;
+  box-shadow: 2px 4px rgba(9, 155, 143, 0.85);
+  border-color: rgb(0, 217, 255);
+  border-radius: 4px;
+  font-size: 18px;
   padding: 1px;
-  margin-right: 10px;
 }
 #loginBtn {
   margin-right: -2px;
