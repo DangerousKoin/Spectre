@@ -27,25 +27,20 @@
               <div id="signin-info">
                 <% if (user) { %>
                   <% if (user.avatar) { %>
-                <a href="/user" id="userBtn"><img src="<%= user.avatar %>" alt="avatar" class="box responsive-img" width="45"></a>
-                    <% } else { %>
-                <a href="/user" id="userBtn"><img src="/public/images/favicon.png" alt="avatar" class="box responsive-img" width="50"></a>
-                  <% }; %> <br>
+                  <a href="/user" id="userBtn"><img src="<%= user.avatar %>" alt="avatar" width="45"></a>
+                  <% } else { %>
+                  <a href="/user" id="userBtn"><img src="/images/icon.png" alt="avatar" width="50"></a>
+                  <% }; %> 
+                  <br>
                   <a href="/user" id="userBtn"><small>Hi <%= user.first %>!</small></a>
                 <% } else { %>
-                  <form id="login" action="/auth/google" method="GET">
-                    <label>Email</label>
-                    <input type="email" name="email" size="10">
-                    <br>
-                    <input type="submit" value="GOOGLE LOGIN">
-                    </form>
-                    <a href="/register">REGISTER</a>
+                  <img src="/images/icon.png" alt="avatar" width="50">
                 <% }; %>
               </div>
               <div id="signin-buttons">
                 <% if (user) { %>
+                  <% console.log("user seen"); %>
                   <a href="/cart" id="cartBtn">CART</a>
-                        <br><br>
                   <% let total = 0 %>
                   <% if (user.cart.length) { %>
                     <% user.cart.forEach(function(i) { %>
@@ -59,7 +54,15 @@
                       <% } %>
                       <br>
                       <medium>Total $<%= total %></medium>
-                <% } %>
+                <% } else { %>
+                  <form id="login" action="/auth/google" method="GET">
+                    <input placeholder="Email" type="email" name="email" size="10">
+                    <br>
+                    <input type="submit" value="GOOGLE LOGIN">
+                    </form>
+                    <a href="/register">REGISTER</a>
+                    
+                <% }; %>
               </div>
             </div>
           </div>
