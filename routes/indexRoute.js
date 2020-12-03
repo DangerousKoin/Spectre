@@ -34,16 +34,20 @@ router.get('/',
 })
 
 router.get('/register', 
-  function register(err, req, res, next) {
-    if (err) return next(err);
-    res.redirect('/items');
+  function register(req, res) {
+    User.find({}, function(err, users, next) {
+      Item.find({}, function(err, items, next) {
+        if (err) return next(err);
+        res.render('register', {users, items});
+      });
+      if (err) return next(err);
+    });
 })
 
 router.get('/peace', 
-  function peace(err, req, res, next) {
-    if (err) return next(err);
-    res.redirect('/peace');
-})
+  function peace(req, res) {
+    res.render('peace');
+});
 
 router.post('/register', 
   function addUser(err, req, res, next) {

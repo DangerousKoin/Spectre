@@ -3,6 +3,7 @@ const User = require('../models/user');
 
 module.exports = {
   index,
+  newItem,
   addItem,
   delUser,
   delItem
@@ -16,6 +17,11 @@ function index(req, res) {
     });
     if (err) return next(err);
   });
+}
+
+function newItem(err, req, res, next) {
+    if (err) return next(err);
+    res.redirect('/admin/items');
 }
 
 function addItem(err, req, res, next) {

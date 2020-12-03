@@ -13,7 +13,7 @@ function index(req, res) {
   User.find({}, function(err, users, next) {
     Item.find({}, function(err, items, next) {
       if (err) return next(err);
-      res.render('users/', {users, items});
+      res.render('user/', {users, items});
     });
     if (err) return next(err);
   });

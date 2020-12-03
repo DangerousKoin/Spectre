@@ -42,7 +42,7 @@
                   <% let total = 0 %>
                   <a href="/logout" id="logoutBtn">LOGOUT</a>
                   <br>
-                  <a href="/users/<%= user._id %>" id="cartBtn">CART</a>
+                  <a href="/cart" id="cartBtn">CART</a>
                   <% if (user.cart.length) { %>
                     <% console.log('cart found!'); %>
                     <% user.cart.forEach(function(i) { %>
