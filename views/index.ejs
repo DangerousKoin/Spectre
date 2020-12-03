@@ -25,25 +25,36 @@
             <tr>
                 <th>Name</th>
                 <th>Price</th>
+                <% if (user) { %>
+                    <th></th>
                 <th>Days</th>
                 <th>Rental Date</th>
+                <th></th>
+                <% }; %>
+
             </tr>
         </thead>
         <tbody>
         <% items.forEach(function(i) { %>
           <tr>
             <td><%= i.name %></td>
-            <td>$<%= i.price %> X</td>
-            <form id="addToCart" action="/cart" method="POST"></form>
+            <td>$<%= i.price %></td>
+            <% if (user) { %>
+                <% console.log(user); %>
+
+            <td> x </td>
+            <form action="/cart?_method=POST" method="POST"></form>
             <td><input id="numInput" type="number" name="rentDays" value="1" max="7"></td>
             <td><input id="dateInput" type="date" name="rentDate"></td>
-            <td><input type="hidden" name="userId" value=<%= user._id %></td>
-            <td><input type="hidden" name="itemId" value=<%= i.id %></td>
             <td><a href="/cart"><button type="submit">Add to Cart</button></a></td>
+            <td><input type="hidden" name="itemId" value=<%= i.id %></td>
+            <td><input type="hidden" name="userId" value=<%= user._id %></td>
             </form>
+            <% }; %>
         </tr>
         <% }); %> 
-        <% } else { %>
+    </tbody>
+    <% } else { %>
         <thead>
             <tr>
                 <H1>CURRENT PRODUCTS</H1>

@@ -30,22 +30,19 @@ function newItem(req, res) {
 }
 
 function addItem(req, res) {
-  console.log(req.body);
   const item = new Item(req.body);
   item.save(function(err) {
     if (err) return next(err);
     res.redirect('/items');
   });
-  
 }
 
-function delUser(err, req, res, next) {
+function delUser(req, res) {
   User.findById(req.body.userId).exec(function(err, user, next) {
     if (err) return next(err);
     user.remove();
     res.redirect('/admin');
     });
-  if (err) return next(err);
 }
 
 

@@ -57,13 +57,12 @@ router.get('/peace',
 })
 
 router.post('/register', 
-  function addUser(err, req, res, next) {
+  function addUser(req, res) {
     const user = new User(req.body);
     user.save(function(err) {
       if (err) return next(err);
-      res.redirect('/users');
+      res.redirect('/');
     });
-  if (err) return next(err);
-})
+  })
 
 module.exports = router;
