@@ -40,7 +40,8 @@
               <div id="signin-buttons">
                 <% if (user) { %>
                   <% console.log("user seen"); %>
-                  <a href="/cart" id="cartBtn">CART</a>
+                  <a href="/user" id="cartBtn">PROFILE</a>
+                  <br>
                   <% let total = 0 %>
                   <% if (user.cart.length) { %>
                     <% user.cart.forEach(function(i) { %>
@@ -52,6 +53,7 @@
                       <% } else { %>
                       <medium><%= user.cart.length %> Items</medium>
                       <% } %>
+                      <a href="/cart" id="cartBtn">CART</a>
                       <br>
                       <medium>Total $<%= total %></medium>
                 <% } else { %>
