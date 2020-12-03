@@ -9,7 +9,6 @@ passport.use(new GoogleStrategy({
   callbackURL: process.env.GOOGLE_CALLBACK
 }, function (accessToken, refreshToken, profile, cb) {  // Verify CB
   // A user has logged in via Google OAuth
-  console.log(profile);
   User.findOne({ googleId: profile.id }, function (err, user) {
     if (err) return cb(err);
     if (user) {

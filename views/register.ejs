@@ -1,4 +1,4 @@
-<%- include('../partials/header') %>
+<%- include('partials/header') %>
 <form id="new-form" action="/users" method="POST">
     <label>Name
       <input type="text" name="name" >
@@ -10,9 +10,9 @@
       <input type="text" name="last">
     </label><br>
     <label>Email
-        <input type="text" name="email">
+        <input type="email" name="email">
     </label><br>
     
-      <input type="submit" value="Add User">
+      <input type="submit" value="Register">
   </form>
-<%- include('../partials/footer') %>
+<%- include('partials/footer') %>

@@ -40,7 +40,7 @@ function addItem(req, res) {
 }
 
 function delUser(err, req, res, next) {
-  User.findById(req.params.id).exec(function(err, user, next) {
+  User.findById(req.body.userId).exec(function(err, user, next) {
     if (err) return next(err);
     user.remove();
     res.redirect('/admin');
@@ -49,13 +49,12 @@ function delUser(err, req, res, next) {
 }
 
 
-function delItem(err, req, res, next) {
-  Item.findById(req.params.id).exec(function (err, item, next) {
+function delItem(req, res) {
+  Item.findById(req.body.itemId).exec(function (err, item, next) {
     if (err) return next(err);
     item.remove();
     res.redirect('/items');
     });
-  if (err) return next(err);
 }
 
 

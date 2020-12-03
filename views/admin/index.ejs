@@ -2,9 +2,6 @@
 <table id="list">
   <thead>
     <tr>
-      <th><a href="/items">New Item</a></th>
-    </tr>
-    <tr>
       <th></th>
       <th>Name</th>
       <th>Email</th>
@@ -18,8 +15,7 @@
         <td><%= u.email %></td>
         <td><a href="/user/<%= u._id %>">DETAILS</a></td>
         <td><form name="delUser" value="<%= u.id %>"
-          action="/users/<%= u.id %>?_method=DELETE" method="POST">
-          
+          action="/users?_method=DELETE" method="POST">
         <button type="submit">X</button>
         </form></td>
       </tr>

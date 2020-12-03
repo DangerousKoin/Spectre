@@ -4,19 +4,19 @@ const Schema = mongoose.Schema;
 const itemSchema = new Schema({
   name: {type: String},
   price: {type: Number, default: 50}, // tell user per item or per day
-  rent: {type: Date, // when they rented it
+  rentDate: {type: Date, // when they rented it
           default: function () {
-            let rent = new Date().toLocaleDateString()
+            let rent = new Date().getTime();
             console.log(rent);
             return rent;
           }},
-  due: {type: Date, // when it is due back for return
+  rentDays: {type: Number, // when it is due back for return
     default: function () {
-      let due = new Date().toLocaleDateString()
+      let due = new Date().getTime();
       console.log(due);
       return due;
     }},
-  return: {type: Date, // when they actually return it
+  returnDate: {type: Date, // when they actually return it
     }
 },
 {

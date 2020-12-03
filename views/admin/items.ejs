@@ -1,32 +1,44 @@
 <%- include('../partials/header') %>
+<% if (items.length > 0) { %>
 <table>
-  <% if (items.length > 0) { %>
-    <thead>
+  <thead>
       <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th></th>
+          <H1>CURRENT PRODUCTS</H1>
+      </tr>
+      <tr>
+          <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
       </tr>
   </thead>
   <tbody>
       <tr>
-    <% items.forEach(function(i) { %>
-        <td><%= i.name %></td>
-        <td>$<%= i.price %></td>
-        <td><form name="delItem" value="<%= i.id %>" action="/items?_method=DELETE" method="POST">
-        <button type="submit">X</button>
-        </form></td>
+          <th>Name</th>
+          <th>Price</th>
       </tr>
+      <% items.forEach(function(i) { %>
+    <tr>
+      <td><%= i.name %></td>
+      <td>$<%= i.price %></td>
+      <td>
+        <form action="/items?_method=DELETE" method="POST">
+          <input type="hidden" name="itemId" value=<%= i.id %>>
+        <button type="submit">X</button></form>
+      </td>
+    </tr>
     <% }); %>
+  </tbody>
   <% } else { %>
   <thead>
-    <tr>
-      <td>No Items Added Yet</td>
-    </tr>
+      <tr>
+          <H1>NO PRODUCTS</H1>
+      </tr>
+      <tr>
+          <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
+      </tr>
   </thead>
+</table>
   <% }; %>
-  <tbody>
-    <tr><td>_______________________________</td></tr>
+<table>
+  </tbody>
     <tr>
       <td>
       <form id="addItem" action="/items" method="POST">
@@ -35,7 +47,7 @@
     </tr>
     <tr>
       <td>
-      <label>Price: <input name="price" type="number"></label>
+      <label>Price: <input name="price" type="number" value="50"></label>
       </td>
     </tr>
     <tr>

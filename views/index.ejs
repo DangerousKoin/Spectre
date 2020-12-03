@@ -6,15 +6,55 @@
     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowfullscreen></iframe>
 </div>
+<br>
 <div>
-    <form id="addItem" method="POST"
-    action="/cart">
-    <label>Item:
-        <select name="itemId">
-            <%- items.map(i => `<option value="${i._id}">${i.name}</option>`).join('') %>
-          </select>
-    </label><br>
-    <input type="submit" value="Add Item">
-  </form>
+    <% if (items.length > 0) { %>
+    <table>
+        <thead>
+            <tr>
+            
+                <th><H1>CURRENT PRODUCTS</H1></th>
+            </tr>
+            <tr>
+                <th><h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2></th>
+            </tr>
+        </thead>
+    </table>
+    <table>
+        <head>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Days</th>
+                <th>Rental Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        <% items.forEach(function(i) { %>
+          <tr>
+            <td><%= i.name %></td>
+            <td>$<%= i.price %> X</td>
+            <form action="/cart" method="POST"></form>
+            <td><input id="numInput" type="number" name="rentDays" value="1" max="7"></td>
+            <td><input id="dateInput" type="date" name="rentDate"></td>
+            <td><input type="hidden" name="itemId" value=<%= i.id %></td>
+            <td><a href="/cart"><button type="submit">Add to Cart</button></a></td>
+            </form>
+        </tr>
+        <% }); %> 
+        <% } else { %>
+        <thead>
+            <tr>
+                <H1>CURRENT PRODUCTS</H1>
+            </tr>
+            <tr>
+                <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
+            </tr>
+          <tr>
+            <h3><td>Check Back Soon!</td></h3>
+          </tr>
+        </thead>
+        <% }; %>
+    </table>
 </div>
 <%- include('partials/footer') %>

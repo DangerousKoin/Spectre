@@ -27,53 +27,47 @@
               <div id="signin-info">
                 <% if (user) { %>
                   <% if (user.avatar) { %>
-                    <img src="<%= user.avatar %>" alt="avatar" class="box responsive-img" width="50">
-                  <% } else { %>
-                    <i class="medium material-icons">account_box</i>
+                <a href="/user" id="userBtn"><img src="<%= user.avatar %>" alt="avatar" class="box responsive-img" width="50"></a>
+                    <% } else { %>
+                <a href="/user" id="userBtn"><img src="/public/images/favicon.png" alt="avatar" class="box responsive-img" width="50"></a>
                   <% }; %>
-                  <br>
-                  <small><%= user.first %></small>
+                
                 <% } else { %>
-                  <a href="/auth/google" id="loginBtn">GOOGLE LOGIN</a>
+                  <form id="login" action="/auth/google" method="GET">
+                    <label>Email</label>
+                    <input type="email" name="email" size="10">
+                    <br>
+                    <input type="submit" value="GOOGLE LOGIN">
+                    </form>
+                    <form id="register" action="/register" method="GET">
+                    <input type="submit" value="REGISTER">
+                    </form>
                 <% }; %>
               </div>
               <div id="signin-buttons">
                 <% if (user) { %>
                   <% let total = 0 %>
+                <a href="/user" id="userBtn"><small>Hi <%= user.first %>!</small></a>
                   <a href="/logout" id="logoutBtn">LOGOUT</a>
                   <br>
-                  <a href="/cart" id="cartBtn">CART</a>
                   <% if (user.cart.length) { %>
-                    <% console.log('cart found!'); %>
                     <% user.cart.forEach(function(i) { %>
                         <% total += i.price %>
                       <% }); %>
                     <% }; %>
-                      <% if (user.cart.length <= 1) { %>
+                      <% if (user.cart.length === 1) { %>
                       <small><%= user.cart.length %> Item</small>
-                      <br>
-                      <small>Total $<%= total %></small>
                       <% } else { %>
                       <small><%= user.cart.length %> Items</small>
-                      <br>
-                      <small>Total $<%= total %></small>
                       <% } %>
+                      <a href="/cart" id="cartBtn">CART</a>
+                        <br>
+                      <medium>Total $<%= total %></medium>
                 <% } %>
               </div>
             </div>
           </div>
         <div class="spacer"></div>
-      </div>
-      <div id="nav-container">
-        <div id="nav-box">
-          <table id="nav-bar">
-            <thead>
-              <tr>
-                <th><a href="/admin">Admin Portal</a></th>
-              </tr>
-            </thead>
-          </table>
-        </div>
       </div>
     </header>
     <div id="main-container">

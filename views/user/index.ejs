@@ -1,9 +1,28 @@
 <%- include('../partials/header') %>
-
+<% if (user.admin === true) { %>
+  <table>
+    <thead>
+      <tr>
+        <th><h1>ADMIN PROFILE</h1></th>
+      </tr>
+      <tr>
+        <th><h2><a href="/items">> Products Portal <</a></h2></th>
+      </tr>
+      <tr>
+        <th><h2><a href="/admin">> Users Portal <</a></h2></th>
+      </tr>
+      <tr>
+        <th><h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3></th>
+      </tr>
+    </thead>
+  </table>
+<% } else { %>
 <h1>USER PROFILE</h1>
-<h3><%= user.avatar %></h3>
+<% }; %>
+
+<h3><img src="<%= user.avatar %>" alt="avatar" class="box responsive-img" width="100"></h3>
 <h3><%= user.name %></h3>
 <h3><%= user.email %></h3>
-<h2><a href="/users">CART</a></h2>
+<h2><a href="/cart">CART</a></h2>
 
 <%- include('../partials/footer') %>
