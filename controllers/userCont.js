@@ -21,23 +21,20 @@ function index(req, res) {
 
 function cart(req, res) {
   User.find({}, function(users) {
-    Item.find({}, function(err, items, next) {
-      if (err) return next(err);
+    Item.find({}, function(err, items) {
+      if (err) return next(err, res);
       res.render('user/cart', {users, items});
     });
   });
 }
 
 function addToCart(req, res) {
-  User.findById(req.body.userId).exec(function (err, user, next) {
-    console.log("user ", req.body.userId);
-    console.log("item ", req.body.itemId);
-    if (err) return next(err);
-    user.cart.push(req.body.itemId);
+  let user = req.user;
+    console.log(req.body);
+    user.cart.push(req.body);
     user.save();
     res.redirect('/cart');
-  });
-}
+  }
 
 function delUser(req, res) {
   User.findById(req.body.userId).exec(function(err, user, next) {
@@ -48,9 +45,8 @@ function delUser(req, res) {
 }
 
 function delFromCart(req, res) {
-  User.findById(req.body.userId, function (err, user, next) {
-    if (err) return next(err);
+  let user = req.user;
+  console.log(req.body);
     user.cart.remove(req.body.itemId);
     res.redirect('/cart');
-  });
-}
+  }

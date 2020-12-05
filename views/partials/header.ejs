@@ -39,15 +39,20 @@
               </div>
               <div id="signin-buttons">
                 <% if (user) { %>
-                  <% console.log("user seen"); %>
                   <a href="/user" id="cartBtn">PROFILE</a>
                   <br>
                   <% let total = 0 %>
                   <% if (user.cart.length) { %>
-                    <% user.cart.forEach(function(i) { %>
-                        <% total += i.price %>
+                    <% user.cart.forEach(function(ci) { %>
+                      <% items.forEach(function(it) { %>
+                        <% let ciString = String(ci._id); %>
+                        <% let itString = String(it._id); %>
+                          <% if (itString === ciString) { %>
+                            <% total += it.price %>
+                          <% }; %>
                       <% }); %>
-                    <% }; %>
+                    <% }); %>
+                  <% }; %>
                       <% if (user.cart.length === 1) { %>
                       <medium><%= user.cart.length %> Item</medium>
                       <% } else { %>

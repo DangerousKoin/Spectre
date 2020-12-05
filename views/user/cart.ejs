@@ -1,37 +1,41 @@
 <%- include('../partials/header') %>
 <section id="show-page">
   
-  
   <% if (user.cart.length > 0) { %>
     <table>
       <thead>
         <tr>
             <th>Item</th>
             <th>Price</th>
-            <th>Rent</th>
-            <th>Due</th>
-            <th>Return</th>
+            <th>Days</th>
+            <th>Rented On</th>
         </tr>
       </thead>
       <tbody>
-        <% let total = 0 %>
-        <% user.cart.forEach(function(it) { %>
-          <% items.find(it).exec(function(i) { %>
-          <% total += i.price %>
+       
+          <% let total = 0 %>
+          <% user.cart.forEach(function(ci) { %>
+            <% items.forEach(function(it) { %>
+              <% let ciString = String(ci._id); %>
+              <% let itString = String(it._id); %>
+              <% if (ciString === itString) { %>
+              
+              <% total += it.price %>
         <tr>
-          <td><%= i.item %></td>
-          <td><%= i.price %></td>
-          <td><%= i.rentDays %></td>
-          <td><%= i.rentDate %></td>
+          <td><%= it.name %></td>
+          <td><%= it.price %></td>
+          <td><%= ci.rentDays %></td>
+          <td><%= ci.rentDate %></td>
           <td>
               <form action="/cart?_method=DELETE" method="POST">
-                <input type="hidden" name="userId" value=<%= user._id %>>
-                <input type="hidden" name="itemId" value=<%= i.id %>>
+                <input type="hidden" name="itemId" value=<%= ci._id %>>
               <button type="submit">X</button></form>
           </td>
         </tr>
+              <% }; %>
+            <% }); %>
           <% }); %>
-          <% }); %>
+         
 
         <tr>
             <td>Total $<%= total %></td>
