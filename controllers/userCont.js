@@ -38,17 +38,19 @@ function addToCart(req, res) {
 
 function delUser(req, res) {
   User.findById(req.body.userId).exec(function(err, user) {
-    if (err) return next(err);
-    user.remove();
+    console.log("userId ", req.body.userId);
+    if (user === req.user) {
+      console.log("deleting user");
+      user.remove();
+      
+    };
+    if (err) return next(err, res);
     res.redirect('/redirects/peace');
+    
     });
 }
 
 function delFromCart(req, res) {
   let user = req.user;
-  user.cart.findById(req.body._id).exec(function (err, item) {
-    if (err) return next(err);
-    item.remove();
-      res.redirect('/cart');
-  });
+  
 }

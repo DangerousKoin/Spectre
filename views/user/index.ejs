@@ -12,21 +12,47 @@
         <th><h2><a href="/admin">> Users Portal <</a></h2></th>
       </tr>
       <tr>
-        <th><h2><a href="/register">> Create User <</a></h2></th>
-      </tr>
-      <tr>
         <th><h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3></th>
       </tr>
     </thead>
   </table>
 <% }; %>
-<h1>USER PROFILE</h1>
-<h2><a href="/cart" id="cartBtn">CART</a></h2>
-<h3><img src="<%= user.avatar %>" alt="avatar" class="box responsive-img" width="100"></h3>
-<h3><%= user.name %></h3>
-<h3><%= user.email %></h3>
-<br><br>
-<h2><a href="/logout" id="logoutBtn">LOGOUT</a></h2>
-
+<table>
+  <thead>
+    <tr>
+      <th><h1>USER PROFILE</h1></th>
+    </tr>
+  </thead>
+</table>
+<table>
+  <tbody>
+    <tr><br></tr>
+    <tr>
+      <td>
+        <img src="<%= user.avatar %>" alt="avatar"
+        class="box responsive-img" width="100">
+      </td>
+      <td>
+        <h3><%= user.name %></h3>
+        <h3><%= user.email %></h3>
+  <table>
+    <body>
+      <td>
+        <h2><a href="/logout" id="logoutBtn">LOGOUT</a></h2>
+      </td>
+      <td>
+        <h2><form name="userId" value="<%= user.id %>"
+          action="/delete?_method=DELETE" method="POST">
+        <button id="logoutBtn" type="submit">DELETE ACCOUNT</button>
+        </form></h2>
+      </td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <%- include('../partials/footer') %>

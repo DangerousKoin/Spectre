@@ -21,6 +21,9 @@ router.get('/logout', function(req, res){
   req.logout();
   res.render('redirects/logout');
 })
+router.get('/login', function(req, res){
+  res.render('redirects/login');
+})
 
 // Begin Normal Index Control
 router.get('/', 

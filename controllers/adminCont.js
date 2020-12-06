@@ -38,7 +38,8 @@ function addItem(req, res) {
 }
 
 function delUser(req, res) {
-  User.findById(req.body.userId).exec(function(err, user, next) {
+  User.findById(req.body.userId).exec(function(err, user) {
+    console.log(user);
     if (err) return next(err);
     user.remove();
     res.redirect('/admin');
@@ -47,7 +48,7 @@ function delUser(req, res) {
 
 
 function delItem(req, res) {
-  Item.findById(req.body.itemId).exec(function (err, item, next) {
+  Item.findById(req.body.itemId).exec(function (err, item) {
     if (err) return next(err);
     item.remove();
     res.redirect('/items');

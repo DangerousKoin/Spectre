@@ -124,15 +124,26 @@ header {
   white-space: nowrap;
   color: rgb(200, 200, 200);
 }
-#loginBtn, #logoutBtn, #cartBtn, #button, #option {
-  color: rgb(173, 173, 173);
+#loginBtn, #logoutBtn, #cartBtn, .addButton, #button, #option {
+  color: rgb(0, 255, 255);
   background-color: rgb(0, 74, 124);
   border: 2px solid black;
-  box-shadow: 2px 4px rgba(9, 155, 143, 0.85);
   border-color: rgb(0, 217, 255);
   border-radius: 4px;
   font-size: 12px;
   padding: 1px;
+}
+.addButton {
+  font-size: 16px;
+  height: 28px;
+}
+.numInput {
+  width: 57px;
+  height: 23px;
+}
+.dateInput {
+  width: 128px;
+  height: 23px;
 }
 input {
   color: rgb(173, 173, 173);
@@ -141,7 +152,6 @@ input {
   border-radius: 4px;
   font-size: 14px;
   padding: 1px;
-  width: 100px;
 }
 #loginBtn {
   margin-right: -2px;
@@ -176,13 +186,16 @@ input {
   text-align: center;
   color: rgba(250, 250, 250, 1);
 }
-th, tr, td, tbody, thead, table {
+th, tr, td {
   margin: 0 auto;
   padding: 2px;
+  width: auto;
 }
-#numInput {
-  width: 25px;
+table, thead, tbody {
+  margin: 0 auto;
+  width: auto;
 }
+
 #youtube-container  {
   position: relative;
   margin: 0 auto;

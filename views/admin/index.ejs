@@ -10,9 +10,6 @@
           <th><h2><a href="/items">> Products Portal <</a></h2></th>
         </tr>
         <tr>
-          <th><h2><a href="/register">> Create User <</a></h2></th>
-        </tr>
-        <tr>
           <th><h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3></th>
         </tr>
       </thead>
@@ -22,9 +19,6 @@
         <table>
           <tr>
               <H1>CURRENT USERS</H1>
-          </tr>
-          <tr>
-              <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
           </tr>
           <tr>
             <th></th>
@@ -39,10 +33,12 @@
             <td><%= u.name %></td>
             <td><%= u.email %></td>
             <td><a href="/user">DETAILS</a></td>
-            <td><form name="userId" value="<%= u.id %>"
-              action="/users?_method=DELETE" method="POST">
-            <button type="submit">X</button>
-            </form></td>
+            <td>
+              <form action="/users?_method=DELETE" method="POST">
+              <input type="hidden" name="userId" value="<%= u._id %>">
+              <button type="submit">X</button>
+              </form>
+            </td>
           </tr>
         <% }); %>
       </tbody>
