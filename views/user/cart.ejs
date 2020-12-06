@@ -18,7 +18,7 @@
             <% items.forEach(function(it) { %>
               <% let ciString = String(ci._id); %>
               <% let itString = String(it._id); %>
-              <% if (ciString === itString) { %>
+              <% if (itString === ciString) { %>
               
               <% total += it.price %>
         <tr>
@@ -28,7 +28,7 @@
           <td><%= ci.rentDate %></td>
           <td>
               <form action="/cart?_method=DELETE" method="POST">
-                <input type="hidden" name="itemId" value=<%= ci._id %>>
+                <input type="hidden" name="_id" value=<%= ci._id %>>
               <button type="submit">X</button></form>
           </td>
         </tr>

@@ -34,18 +34,24 @@
             </tr>
         </thead>
         <tbody>
-        <% items.forEach(function(i) { %>
+        <% items.forEach(function(it) { %>
           <tr>
-            <td><%= i.name %></td>
-            <td>$<%= i.price %></td>
+            <td><%= it.name %></td>
+            <td>$<%= it.price %></td>
+            
 
             <% if (user) { %>
             <td> x </td>
             <form id="addToCart" action="/cart" method="POST">
+                <% if (it.rental) { %>
             <td><input type="number" name="rentDays" value="1" max="7"></td>
             <td><input type="date" name="rentDate"></td>
+                <% } else { %>
+                    <td></td>
+                    <td></td>
+                <% }; %>
             <td><button type="submit">Add to Cart</button></td>
-            <td><input type="hidden" name="_id" value=<%= i._id %>></td>
+            <td><input type="hidden" name="_id" value=<%= it._id %>></td>
             </form>
             <% }; %>
             </tr>

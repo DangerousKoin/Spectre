@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<h1><a href="/admin">> USERS <</a></h1>
+<h2><a href="/admin">> USERS <</a></h2>
 <% if (items.length > 0) { %>
 <table>
   <thead>
@@ -14,14 +14,20 @@
     <tr>
         <th>Name</th>
         <th>Price</th>
+        <th>Rental</th>
     </tr>
-      <% items.forEach(function(i) { %>
+      <% items.forEach(function(it) { %>
     <tr>
-      <td><%= i.name %></td>
-      <td>$<%= i.price %></td>
+      <td><%= it.name %></td>
+      <% if (Number.isInteger(it.price)) { %>
+      <td>$<%= it.price %>.00</td>
+      <% } else { %>
+      <td>$<%= it.price %></td>
+      <% }; %>
+      <td><%= it.rental %></td>
       <td>
         <form action="/items?_method=DELETE" method="POST">
-          <input type="hidden" name="itemId" value="<%= i.id %>">
+          <input type="hidden" name="itemId" value="<%= it.id %>">
         <button type="submit">X</button></form>
       </td>
     </tr>
@@ -44,7 +50,13 @@
       <form id="addItem" action="/items" method="POST">
       <label>Name: <input name="name" type="string"></label>
     </td></tr><tr><td>
-      <label>Price: <input name="price" type="number" value="50"></label>
+      <label>Price: $<input name="price" type="number" step=".01" value="50.00"></label>
+    </td></tr><tr><td>
+      <label>Rental Item: 
+        <select name="rental" form="addItem" type="boolean">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select></label>
     </td></tr><tr><td>
       <input type="submit" value="Add Item">
       </form>

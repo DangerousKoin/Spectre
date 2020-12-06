@@ -46,7 +46,9 @@ function delUser(req, res) {
 
 function delFromCart(req, res) {
   let user = req.user;
-  console.log(req.body);
-    user.cart.remove(req.body.itemId);
-    res.redirect('/cart');
-  }
+  user.cart.findById(req.body._id).exec(function (err, item) {
+    if (err) return next(err);
+    item.remove();
+      res.redirect('/cart');
+  });
+}

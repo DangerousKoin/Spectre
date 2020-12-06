@@ -29,6 +29,7 @@ a {
 
 /* MAIN CONTAINER */
 header {
+  z-index: 10;
   position: fixed;
   display: inline-block;
   width: 100%;
@@ -123,9 +124,9 @@ header {
   white-space: nowrap;
   color: rgb(200, 200, 200);
 }
-#loginBtn, #logoutBtn, #cartBtn {
+#loginBtn, #logoutBtn, #cartBtn, #button, #option {
   color: rgb(173, 173, 173);
-  background-color: rgb(0, 17, 114);
+  background-color: rgb(0, 74, 124);
   border: 2px solid black;
   box-shadow: 2px 4px rgba(9, 155, 143, 0.85);
   border-color: rgb(0, 217, 255);
@@ -136,12 +137,11 @@ header {
 input {
   color: rgb(173, 173, 173);
   background-color: rgb(0, 17, 114);
-  border: 2px solid black;
-  box-shadow: 2px 4px rgba(9, 155, 143, 0.85);
   border-color: rgb(0, 217, 255);
   border-radius: 4px;
   font-size: 14px;
   padding: 1px;
+  width: 100px;
 }
 #loginBtn {
   margin-right: -2px;
