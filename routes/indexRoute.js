@@ -13,13 +13,13 @@ router.get('/auth/google', passport.authenticate(
 // Google OAuth callback route
 router.get('/oauth2callback', passport.authenticate('google', {
 successRedirect : '/', 
-failureRedirect : '/error'
+failureRedirect : '/redirects/error'
 }))
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout();
-  res.render('logout');
+  res.render('redirects/logout');
 })
 
 // Begin Normal Index Control
@@ -39,7 +39,7 @@ router.get('/register',
     User.find({}, function(err, users, next) {
       Item.find({}, function(err, items, next) {
         if (err) return next(err);
-        res.render('register', {users, items});
+        res.render('redirects/register', {users, items});
       });
       if (err) return next(err);
     });
@@ -50,7 +50,7 @@ router.get('/peace',
     User.find({}, function(err, users, next) {
       Item.find({}, function(err, items, next) {
         if (err) return next(err);
-        res.render('peace', {users, items});
+        res.render('redirects/peace', {users, items});
       });
       if (err) return next(err);
     });

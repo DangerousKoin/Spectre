@@ -40,7 +40,7 @@ function delUser(req, res) {
   User.findById(req.body.userId).exec(function(err, user) {
     if (err) return next(err);
     user.remove();
-    res.redirect('/peace');
+    res.redirect('/redirects/peace');
     });
 }
 
