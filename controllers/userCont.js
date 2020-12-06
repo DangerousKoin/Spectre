@@ -37,7 +37,7 @@ function addToCart(req, res) {
   }
 
 function delUser(req, res) {
-  User.findById(req.body.userId).exec(function(err, user, next) {
+  User.findById(req.body.userId).exec(function(err, user) {
     if (err) return next(err);
     user.remove();
     res.redirect('/peace');

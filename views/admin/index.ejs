@@ -1,33 +1,59 @@
 <%- include('../partials/header') %>
-<h1><a href="/items">> PRODUCTS <</a></h1>
-<table id="list">
-  <thead>
+<% if (user) { %>
+  <% if (user.admin === true) { %>
     <table>
-      <tr>
-          <H1>CURRENT USERS</H1>
-      </tr>
-      <tr>
-          <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
-      </tr>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Email</th>
-      </tr>
-  </thead>
-  <tbody>
-    <% users.forEach(function(u) { %>
-      <tr>
-        <td><img src="<%= u.avatar %>" width="25"></td>
-        <td><%= u.name %></td>
-        <td><%= u.email %></td>
-        <td><a href="/user">DETAILS</a></td>
-        <td><form name="userId" value="<%= u.id %>"
-          action="/users?_method=DELETE" method="POST">
-        <button type="submit">X</button>
-        </form></td>
-      </tr>
-    <% }); %>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th><h1>ADMIN PROFILE</h1></th>
+        </tr>
+        <tr>
+          <th><h2><a href="/items">> Products Portal <</a></h2></th>
+        </tr>
+        <tr>
+          <th><h2><a href="/register">> Create User <</a></h2></th>
+        </tr>
+        <tr>
+          <th><h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3></th>
+        </tr>
+      </thead>
+    </table>
+    <table id="list">
+      <thead>
+        <table>
+          <tr>
+              <H1>CURRENT USERS</H1>
+          </tr>
+          <tr>
+              <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
+          </tr>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(u) { %>
+          <tr>
+            <td><img src="<%= u.avatar %>" width="25"></td>
+            <td><%= u.name %></td>
+            <td><%= u.email %></td>
+            <td><a href="/user">DETAILS</a></td>
+            <td><form name="userId" value="<%= u.id %>"
+              action="/users?_method=DELETE" method="POST">
+            <button type="submit">X</button>
+            </form></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h1>ACCESS DENIED!!!</h1><br>
+    <h1>ABORT!!!</h1><br>
+    <h1>ABORT!!!</h1><br>
+    <h1>ABORT!!!</h1><br>
+  <% }; %>
+<% } else { %>
+  <h1>Please Sign In</h1>
+<% }; %>
 <%- include('../partials/footer') %>
