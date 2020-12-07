@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
   name: {type: String},
-  price: {type: Number, default: 0.00},
-  rental: {type: Boolean, default: false}
+  price: {type: Number},
+  rental: {type: Boolean}
 },
 {
   timestamps: true

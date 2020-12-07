@@ -30,11 +30,11 @@ function cart(req, res) {
 
 function addToCart(req, res) {
   let user = req.user;
-    console.log(req.body);
-    user.cart.push(req.body);
-    user.save();
-    res.redirect('/cart');
-  }
+  user.cart.push(req.body.prodItem);
+  user.save();
+  res.redirect('/');
+}
+
 
 function delUser(req, res) {
   if (req.user.id === req.body.userId) {
@@ -52,17 +52,13 @@ function delUser(req, res) {
 
 function delFromCart(req, res) {
   if (req.user.id === req.body.userId) {
-    console.log("Passed User Check.")
     let user = req.user;
       let userCart = req.user.cart;
       userCart.forEach(function(cartItem) {
-        console.log("Del Item: ", req.body.itemId, typeof req.body.itemId);
         let delItem = req.body.itemId;
         let cartItemId = cartItem._id;
         let ciString = cartItemId.toString();
-        console.log("Cart Item: ", ciString, typeof ciString);
         if (ciString === delItem) {
-          console.log("Passed Item Check.")
           cartItem.remove();
           user.save();
         };

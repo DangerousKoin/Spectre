@@ -25,7 +25,7 @@
             <label>Name: <input class="dateInput" name="name" type="string"></label>
           </td>
           <td>
-            <label>Price: $<input class="numInput" name="price" type="number" step=".01" value="50.00"></label>
+            <label>Price: $<input class="numInput" name="price" type="number" step=".01" min="0.00" required="true" placeholder="0.00"></label>
           </td>
         </tr>
         <tr>
@@ -64,11 +64,7 @@
       <% items.forEach(function(it) { %>
         <tr>
           <td><%= it.name %></td>
-          <% if (Number.isInteger(it.price)) { %>
-          <td>$<%= it.price %>.00</td>
-          <% } else { %>
-          <td>$<%= it.price %></td>
-          <% }; %>
+          <td>$<%= it.price.toFixed(2) %></td>
           <td><%= it.rental %></td>
           <td>
             <form action="/items?_method=DELETE" method="POST">

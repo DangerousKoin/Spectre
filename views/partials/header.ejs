@@ -48,7 +48,9 @@
                         <% let ciString = String(ci._id); %>
                         <% let itString = String(it._id); %>
                           <% if (itString === ciString) { %>
-                            <% total += it.price %>
+                            <% total += it.price; %>
+                            <% total = Math.round((total + Number.EPSILON) * 100) / 100; %>
+                            <% console.log("total ", total, typeof total); %>
                           <% }; %>
                       <% }); %>
                     <% }); %>
@@ -60,11 +62,7 @@
                       <% }; %>
                         <a href="/cart" id="cartBtn">CART</a>
                         <br>
-                      <% if (Number.isInteger(total)) { %>
-                        <medium>Total $<%= total %>.00</medium>
-                      <% } else { %>
-                        <medium>Total $<%= total %></medium>
-                      <% }; %>
+                        <medium>Total $<%= total.toFixed(2) %></medium>
                 <% } else { %>
                 
                     <br>
