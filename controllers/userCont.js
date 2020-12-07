@@ -45,7 +45,7 @@ function delUser(req, res) {
       
     };
     if (err) return next(err, res);
-    res.redirect('/redirects/peace');
+    res.redirect('/peace');
     
     });
 }

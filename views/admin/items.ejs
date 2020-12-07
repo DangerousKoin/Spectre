@@ -1,88 +1,109 @@
 <%- include('../partials/header') %>
 <% if (user) { %>
-  <% if (user.admin === true) { %>
+  <% if (user.admin && user.admin === true) { %>
     <table>
       <thead></thead>
         <tr>
           <th><h1>ADMIN PROFILE</h1></th>
-        </tr>
-        <tr>
+        </tr><tr>
           <th><h2><a href="/admin">> Users Portal <</a></h2></th>
-        </tr>
-        <tr>
+        </tr><tr>
           <th><h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3></th>
         </tr>
       </thead>
     </table>
-<% // PLACE PAGE ITEMS BELOW %>
-
-<% if (items.length > 0) { %>
-  <table>
-    <thead>
-      <tr>
-          <H1>CURRENT PRODUCTS</H1>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Rental</th>
-      </tr>
-        <% items.forEach(function(it) { %>
-      <tr>
-        <td><%= it.name %></td>
-        <% if (Number.isInteger(it.price)) { %>
-        <td>$<%= it.price %>.00</td>
-        <% } else { %>
-        <td>$<%= it.price %></td>
-        <% }; %>
-        <td><%= it.rental %></td>
-        <td>
-          <form action="/items?_method=DELETE" method="POST">
-            <input type="hidden" name="itemId" value="<%= it.id %>">
-          <button type="submit">X</button></form>
-        </td>
-      </tr>
-      <% }); %>
-    </tbody>
-    <% } else { %>
-    <thead>
+    <table>
+      <thead>
         <tr>
-          <H1>NO PRODUCTS</H1>
+          <h1>ADD NEW ITEM</h1>
         </tr>
+      </thead>
+      </tbody>
+        <tr>
+          <td>
+            <form id="addItem" action="/items" method="POST">
+            <label>Name: <input class="dateInput" name="name" type="string"></label>
+          </td>
+          <td>
+            <label>Price: $<input class="numInput" name="price" type="number" step=".01" value="50.00"></label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          <label>Rental Item: 
+            <select name="rental" form="addItem" type="boolean">
+              <option class="dateInput" value="true">True</option>
+              <option class="dateInput" value="false">False</option>
+            </select></label>
+          </td>
+          <td>
+            <input class="addButton" type="submit" value="Add Item">
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+<% if (items.length > 0) { %>
+    <table>
+      <thead>
         <tr>
           <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
         </tr>
-    </thead>
-  </table>
+        <br>
+        <tr>
+            <H1>CURRENT PRODUCTS</H1>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Rental</th>
+        </tr>
+      <% items.forEach(function(it) { %>
+        <tr>
+          <td><%= it.name %></td>
+          <% if (Number.isInteger(it.price)) { %>
+          <td>$<%= it.price %>.00</td>
+          <% } else { %>
+          <td>$<%= it.price %></td>
+          <% }; %>
+          <td><%= it.rental %></td>
+          <td>
+            <form action="/items?_method=DELETE" method="POST">
+              <input type="hidden" name="itemId" value="<%= it.id %>">
+            <button type="submit">X</button></form>
+          </td>
+        </tr>
+      <% }); %>
+      </tbody>
+    </table>
+  <br><br>
+      <% } else { %>
+        <br><br>
+      <thead>
+          <tr>
+            <H1>NO PRODUCTS</H1>
+          </tr>
+          <tr>
+            <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
+          </tr>
+      </thead>
+    </table>
+    <br><br>
     <% }; %>
-  <table>
-    </tbody>
-      <tr><td>
-        <form id="addItem" action="/items" method="POST">
-        <label>Name: <input name="name" type="string"></label>
-      </td></tr><tr><td>
-        <label>Price: $<input name="price" type="number" step=".01" value="50.00"></label>
-      </td></tr><tr><td>
-        <label>Rental Item: 
-          <select name="rental" form="addItem" type="boolean">
-            <option value="true">True</option>
-            <option value="false">False</option>
-          </select></label>
-      </td></tr><tr><td>
-        <input type="submit" value="Add Item">
-        </form>
-      </td></tr>
-    </tbody>
-  </table>
   <% } else { %>
+    <br><br>
     <h1>ACCESS DENIED!!!</h1><br>
     <h1>ABORT!!!</h1><br>
     <h1>ABORT!!!</h1><br>
     <h1>ABORT!!!</h1><br>
+    <br><br>
   <% }; %>
 <% } else { %>
+  <br><br>
   <h1>Please Sign In</h1>
+  <br><br>
 <% }; %>
 <%- include('../partials/footer') %>

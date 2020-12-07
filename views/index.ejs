@@ -1,5 +1,22 @@
 <%- include('partials/header') %>
-
+<% if (user && user.admin === true) { %>
+    <table>
+      <thead>
+        <tr>
+          <th><h1>ADMIN PROFILE</h1></th>
+        </tr>
+        <tr>
+          <th><h2><a href="/items">> Products Portal <</a></h2></th>
+        </tr>
+        <tr>
+          <th><h2><a href="/admin">> Users Portal <</a></h2></th>
+        </tr>
+        <tr>
+          <th><h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3></th>
+        </tr>
+      </thead>
+    </table>
+  <% }; %>
 <br>
 <div id="youtube-container">
     <iframe id="youtube-frame" width="auto" height="auto" src="https://www.youtube.com/embed/W8x9jgieT30" 
@@ -68,11 +85,12 @@
             <tr>
                 <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
             </tr>
-          <tr>
-            <h3><td>Check Back Soon!</td></h3>
-          </tr>
+            <tr>
+                <h3><td>Check Back Soon!</td></h3>
+            </tr>
         </thead>
-        <% }; %>
     </table>
+    <% }; %>
 </div>
+<br><br>
 <%- include('partials/footer') %>

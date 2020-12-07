@@ -28,8 +28,8 @@ router.get('/login', function(req, res){
 // Begin Normal Index Control
 router.get('/', 
   function index(req, res) {
-    User.find({}, function(err, users, next) {
-      Item.find({}, function(err, items, next) {
+    User.find({}, function(err, users) {
+      Item.find({}, function(err, items) {
         if (err) return next(err);
         res.render('index', {users, items});
       });

@@ -34,8 +34,8 @@
             <td><%= u.email %></td>
             <td><a href="/user">DETAILS</a></td>
             <td>
-              <form action="/users?_method=DELETE" method="POST">
-              <input type="hidden" name="userId" value="<%= u._id %>">
+              <form action="/admin?_method=DELETE" method="POST">
+              <input type="hidden" name="userId" value="<%= user._id %>">
               <button type="submit">X</button>
               </form>
             </td>

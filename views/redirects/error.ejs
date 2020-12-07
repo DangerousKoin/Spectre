@@ -24,6 +24,8 @@
         <div class="spacer-center"></div>
           <div id="signin-container">
             <div id="signin-box">
+              <h1>ERROR!</h1>
+              <h2>ERROR!</h2>
               <div id="signin-info">
               </div>
             </div>
@@ -33,9 +35,15 @@
     </header>
     <div id="main-container">
       <div id="main-box">
-          <div id="main-content">
-<br>
-<div id="error"><h1><%= message %> <%= error.status %></h1>
-<br>
-<%= error.stack %></div>
+        <div id="main-content"> 
+          <br>
+          <div id="error">
+            <h1>ERROR!</h1>
+            <h2>ERROR!</h2>
+            <h3>~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h3>
+            <h3><%= message %></h3>
+            <h3><%= error %></h3>
+            <h3><%= error.status %></h3>
+            <p><%= error.stack %></p>
+          </div>
 <%- include('../partials/footer') %>

@@ -10,49 +10,72 @@ module.exports = {
 };
 
 function index(req, res) {
-  User.find({}, function(err, users) {
-    Item.find({}, function(err, items) {
+  if (req.user.admin === true) {
+    User.find({}, function(err, users) {
+      Item.find({}, function(err, items) {
+        if (err) return next(err);
+        res.render('admin/', {users, items});
+      });
       if (err) return next(err);
-      res.render('admin/', {users, items});
     });
-    if (err) return next(err);
-  });
+  } else {
+    res.redirect('/');
+  };
 }
 
 function newItem(req, res) {
+  if (req.user.admin === true) {
   User.find({}, function(err, users) {
     Item.find({}, function(err, items) {
-      if (err) return next(err);
+      if (err) return next(err, res);
       res.render('admin/items', {users, items});
     });
-    if (err) return next(err);
+    if (err) return next(err, res);
   });
+  } else {
+    res.redirect('/');
+  };
 }
 
 function addItem(req, res) {
-  const item = new Item(req.body);
-  item.save(function(err) {
-    if (err) return next(err);
+  if (req.user.admin === true) {
+    const item = new Item(req.body);
+    item.save(function(err) {
+      if (err) return next(err);
+    });
     res.redirect('/items');
-  });
+  } else {
+    res.redirect('/');
+  };
 }
 
 function delUser(req, res) {
-  User.findById(req.body.userId).exec(function(err, user) {
-    console.log(user);
-    if (err) return next(err);
-    user.remove();
-    res.redirect('/admin');
+  if (req.user.admin === true) {
+    User.findById(req.body.userId).exec(function(err, user) {
+      if (err) return next(err);
+      user.remove(function(err) {
+        if (err) return next(err);
+      });
     });
+    res.redirect('/admin');
+  } else {
+    res.redirect('/');
+  };
 }
 
 
 function delItem(req, res) {
-  Item.findById(req.body.itemId).exec(function (err, item) {
-    if (err) return next(err);
-    item.remove();
-    res.redirect('/items');
+  if (req.user.admin === true) {
+    Item.findById(req.body.itemId).exec(function (err, item) {
+      if (err) return next(err);
+      item.remove(function(err) {
+        if (err) return next(err);
+      });
     });
+    res.redirect('/items');
+  } else {
+    res.redirect('/');
+  };
 }
 
 
