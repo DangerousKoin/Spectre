@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<% if (user.admin === true) { %>
+<% if (user.admin && user.admin === true) { %>
   <table>
     <thead>
       <tr>
@@ -38,13 +38,13 @@
   <table>
     <body>
       <td>
-        <h2><a href="/logout" id="logoutBtn">LOGOUT</a></h2>
+        <h2><a href="/logout" class="addButton">LOGOUT</a></h2>
       </td>
       <td>
-        <h2><form name="userId" value="<%= user.id %>"
-          action="/delete?_method=DELETE" method="POST">
-        <button id="logoutBtn" type="submit">DELETE ACCOUNT</button>
-        </form></h2>
+        <h2><form action="/user?_method=DELETE" method="POST">
+          <input type="hidden" name="userId" value="<%= user._id %>">
+          <button class="addButton" type="submit">DELETE ACCOUNT</button>
+          </form></h2>
       </td>
         </td>
       </tr>

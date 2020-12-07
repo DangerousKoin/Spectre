@@ -26,12 +26,10 @@
                 <td><%= it.price %></td>
                 <td><%= ci.rentDays %></td>
                 <td><%= ci.rentDate %></td>
-                <% console.log(ci.id); %>
-
                 <td>
                     <form action="/cart?_method=DELETE" method="POST">
-                      <input type="hidden" name="cartItemId" value="<%= ci._id %>">
-                      <input type="hidden" name="userCart" value="<%= user.cart %>">
+                      <input type="hidden" name="itemId" value="<%= ci._id %>">
+                      <input type="hidden" name="userId" value="<%= user._id %>">
                     <button type="submit">X</button></form>
                 </td>
               </tr>

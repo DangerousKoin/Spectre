@@ -37,20 +37,38 @@ function addToCart(req, res) {
   }
 
 function delUser(req, res) {
-  User.findById(req.body.userId).exec(function(err, user) {
-    console.log("userId ", req.body.userId);
-    if (user === req.user) {
-      console.log("deleting user");
-      user.remove();
-      
-    };
-    if (err) return next(err, res);
-    res.redirect('/peace');
-    
+  if (req.user.id === req.body.userId) {
+    User.findById(req.body.userId).exec(function(err, user) {
+      if (err) return next(err);
+      user.remove(function(err) {
+        if (err) return next(err);
+      });
     });
+    res.redirect('/peace');
+  } else {
+    res.redirect('/');
+  };
 }
 
 function delFromCart(req, res) {
-  let user = req.user;
-  
+  if (req.user.id === req.body.userId) {
+    console.log("Passed User Check.")
+    let user = req.user;
+      let userCart = req.user.cart;
+      userCart.forEach(function(cartItem) {
+        console.log("Del Item: ", req.body.itemId, typeof req.body.itemId);
+        let delItem = req.body.itemId;
+        let cartItemId = cartItem._id;
+        let ciString = cartItemId.toString();
+        console.log("Cart Item: ", ciString, typeof ciString);
+        if (ciString === delItem) {
+          console.log("Passed Item Check.")
+          cartItem.remove();
+          user.save();
+        };
+      });     
+    res.redirect('/cart');
+  } else {
+    res.redirect('/');
+  };
 }

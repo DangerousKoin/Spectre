@@ -63,7 +63,6 @@ function delUser(req, res) {
   };
 }
 
-
 function delItem(req, res) {
   if (req.user.admin === true) {
     Item.findById(req.body.itemId).exec(function (err, item) {
@@ -77,7 +76,3 @@ function delItem(req, res) {
     res.redirect('/');
   };
 }
-
-
-    
-
