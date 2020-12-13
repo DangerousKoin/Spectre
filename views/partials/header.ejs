@@ -50,7 +50,6 @@
                           <% if (itString === ciString) { %>
                             <% total += (it.price * ci.rentDays); %>
                             <% total = Math.round((total + Number.EPSILON) * 100) / 100; %>
-                            <% console.log("total ", total, typeof total); %>
                           <% }; %>
                       <% }); %>
                     <% }); %>
