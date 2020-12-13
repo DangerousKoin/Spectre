@@ -45,7 +45,7 @@
                   <% if (user.cart.length) { %>
                     <% user.cart.forEach(function(ci) { %>
                       <% items.forEach(function(it) { %>
-                        <% let ciString = String(ci._id); %>
+                        <% let ciString = String(ci.prodId); %>
                         <% let itString = String(it._id); %>
                           <% if (itString === ciString) { %>
                             <% total += it.price; %>
