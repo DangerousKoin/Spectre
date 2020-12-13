@@ -48,7 +48,7 @@
                         <% let ciString = String(ci.prodId); %>
                         <% let itString = String(it._id); %>
                           <% if (itString === ciString) { %>
-                            <% total += it.price; %>
+                            <% total += (it.price * ci.rentDays); %>
                             <% total = Math.round((total + Number.EPSILON) * 100) / 100; %>
                             <% console.log("total ", total, typeof total); %>
                           <% }; %>
