@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Item = require('../models/item');
+const { urlencoded } = require('express');
 
 module.exports = {
   index,
@@ -30,9 +31,10 @@ function cart(req, res) {
 
 function addToCart(req, res) {
   let user = req.user;
-  user.cart.push(req.body.prodItem);
+  console.log(req.body);
+  user.cart.push(req.body);
   user.save();
-  res.redirect('/');
+  res.redirect('/cart');s
 }
 
 
@@ -52,19 +54,11 @@ function delUser(req, res) {
 
 function delFromCart(req, res) {
   if (req.user.id === req.body.userId) {
-    let user = req.user;
-      let userCart = req.user.cart;
-      userCart.forEach(function(cartItem) {
-        let delItem = req.body.itemId;
-        let cartItemId = cartItem._id;
-        let ciString = cartItemId.toString();
-        if (ciString === delItem) {
-          cartItem.remove();
-          user.save();
-        };
-      });     
+          let user = req.user
+          user.cart.remove(req.body.cartItem);
+          user.save(); 
     res.redirect('/cart');
-  } else {
-    res.redirect('/');
-  };
+} else {
+  res.redirect('/');
+};
 }

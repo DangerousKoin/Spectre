@@ -1,0 +1,66 @@
+<br>
+<div>
+    <% if (items.length > 0) { %>
+    <table>
+        <thead>
+            <tr>
+                <th><H1>CURRENT PRODUCTS</H1></th>
+            </tr>
+            <tr>
+                <th><h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2></th>
+            </tr>
+        </thead>
+    </table>
+    <table>
+        <head>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <% if (user) { %>
+                    <th></th>
+                <th>Days</th>
+                <th>Rental Date</th>
+                <th></th>
+                <% }; %>
+            </tr>
+        </thead>
+        <tbody>
+        <% items.forEach(function(it) { %>
+          <tr>
+            <td><%= it.name %></td>
+            <td>$<%= it.price.toFixed(2) %></td>
+            <% if (user) { %>
+            <form id="addToCart" action="/cart?_method=POST" method="POST">
+                <% if (it.rental) { %>
+                    <td> x </td>
+                    <td><input type="number" name="rentDays" min="1" max="2" placeholder="2 Max" required="true"></td>
+                    <td><input type="date" name="rentDate" required="true"></td>
+                <% } else { %>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                <% }; %>
+                    <td><input type="hidden" name="prodId" value=<%= it.id %>></td>
+                    <td><button class="addButton" type="submit">Add to Cart</button></td>
+            </form>
+            <% }; %>
+            </tr>
+        <% }); %> 
+        </tbody>
+    </table>
+    <% } else { %>
+    <table>
+        <thead>
+            <tr>
+                <H1>CURRENT PRODUCTS</H1>
+            </tr>
+            <tr>
+                <h2>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h2>
+            </tr>
+            <tr>
+                <h3><td>Check Back Soon!</td></h3>
+            </tr>
+        </thead>
+    </table>
+    <% }; %>
+</div><br><br>

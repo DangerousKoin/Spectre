@@ -1,14 +1,14 @@
 <%- include('../partials/header') %>
-<section id="show-page">
+<%- include('../products') %>
   
   <% if (user.cart.length > 0) { %>
     <table>
       <thead>
         <tr>
             <th>Item</th>
-            <th>Price</th>
-            <th>Days</th>
             <th>Rented On</th>
+            <th>For</th>
+            <th>Price</th>
         </tr>
       </thead>
       <tbody>
@@ -24,14 +24,15 @@
               <% }; %>
               <tr>
                 <td><%= it.name %></td>
+                <td><%= ci.rentDate.toLocaleDateString('en-US') %></td>
+                <td><%= ci.rentDays %> Days</td>
                 <td>$<%= it.price.toFixed(2) %></td>
-                <td><%= ci.rentDays %></td>
-                <td><%= ci.rentDate %></td>
                 <td>
                     <form action="/cart?_method=DELETE" method="POST">
-                      <input type="hidden" name="itemId" value="<%= ci._id %>">
+                      <input type="hidden" name="cartItem" value="<%= ci.id %>">
                       <input type="hidden" name="userId" value="<%= user._id %>">
-                    <button type="submit">X</button></form>
+                      <button type="submit">X</button>
+                    </form>
                 </td>
               </tr>
             <% }); %>
@@ -46,5 +47,5 @@
   <% } else { %>
     <h5>No Items In Cart.</h5>
   <% }; %>
-</section>
+
 <%- include('../partials/footer') %>
