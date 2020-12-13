@@ -1,6 +1,5 @@
 const User = require('../models/user');
 const Item = require('../models/item');
-const { urlencoded } = require('express');
 
 module.exports = {
   index,
@@ -31,9 +30,10 @@ function cart(req, res) {
 
 function addToCart(req, res) {
   let user = req.user;
-  console.log(req.body);
-  user.cart.push(req.body);
-  user.save();
+  user.cart.push(req.body.prodId);
+  user.save(function(err) {
+    if (err) return next(err);
+  });
   res.redirect('/cart');s
 }
 
