@@ -30,7 +30,7 @@
             <td><%= it.name %></td>
             <td>$<%= it.price.toFixed(2) %></td>
             <% if (user) { %>
-            <form id="addToCart" action="/cart?_method=POST" method="POST">
+            <form id="addToCart" action="/cart" method="POST">
                 <% if (it.rental) { %>
                     <td> x </td>
                     <td><input type="number" name="rentDays" min="1" max="2" placeholder="2 Max" required="true"></td>

@@ -54,11 +54,13 @@ function delUser(req, res) {
 
 function delFromCart(req, res) {
   if (req.user.id === req.body.userId) {
-          let user = req.user
-          user.cart.remove(req.body.cartItem);
-          user.save(); 
+    let user = req.user
+    user.cart.remove(req.body.cartItem);
+    user.save(function(err) {
+      if (err) return next(err);
+    }); 
     res.redirect('/cart');
-} else {
+  } else {
   res.redirect('/');
-};
+  };
 }
