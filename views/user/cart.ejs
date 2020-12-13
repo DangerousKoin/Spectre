@@ -6,13 +6,13 @@
       <thead>
         <tr>
             <th>Item</th>
-            <th>Rented On</th>
+            <th>Rental Date</th>
             <th>For</th>
             <th>Price</th>
         </tr>
       </thead>
       <tbody>
-       
+        <tr>
           <% let total = 0 %>
           <% user.cart.forEach(function(ci) { %>
             <% items.forEach(function(it) { %>
@@ -21,11 +21,14 @@
               <% if (itString === ciString) { %>
                 <% total += (it.price * ci.rentDays); %>
                 <% total = Math.round((total + Number.EPSILON) * 100) / 100; %>
-              <% }; %>
-              <tr>
                 <td><%= it.name %></td>
+                <% if (it.rental) { %>
                 <td><%= ci.rentDate.toLocaleDateString('en-US') %></td>
                 <td><%= ci.rentDays %> Days</td>
+                <% } else { %>
+                  <td></td>
+                  <td></td>
+                <% }; %>
                 <td>$<%= it.price.toFixed(2) %></td>
                 <td>
                     <form action="/cart?_method=DELETE" method="POST">
@@ -34,13 +37,14 @@
                       <button type="submit">X</button>
                     </form>
                 </td>
-              </tr>
+                <% }; %>
+        </tr>
             <% }); %>
           <% }); %>
          
 
         <tr>
-            <td>Total $<%= total.toFixed(2) %></td>
+          <td>Total $<%= total.toFixed(2) %></td>
         </tr>
       </tbody>
     </table>
